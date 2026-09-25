@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+Disallow: /v1.html
+Disallow: /v1-en.html
+Disallow: /next/
+
 Sitemap: https://mohammadrezav.ir/sitemap.xml
