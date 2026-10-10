@@ -842,6 +842,8 @@ button:focus {
 .header__photo-img {
   height: 100%;
   width: 100%;
+  object-fit: cover;
+  object-position: center 36%;
 }
 .header__base-info {
   margin-left: 1.5rem;

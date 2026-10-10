@@ -488,7 +488,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover; /* Crucial: Scales the image to cover the container without distortion, cropping if necessary */
-  object-position: center; /* Adjust if needed (e.g., top center) */
+  object-position: center 36%;
 }
 
 .header__base-info {
