@@ -4,8 +4,9 @@ Personal site for Mohammad Reza Vazifeh (محمدرضا وظیفه) — Full-Sta
 
 Live: https://mohammadrezav.ir
 
-- Current single-page site: `index.html` (bilingual FA/EN)
-- Previous vCard version kept at `v1.html` and `v1-en.html` (noindex)
-- English entry alias: `index-en.html` → `/?lang=en`
+- Persian page: `index.html` (`lang=fa`, canonical `/`)
+- English page: `index-en.html` (`lang=en`, `dir=ltr`, canonical `/index-en.html`)
+- Previous vCard version: `v1.html` and `v1-en.html` (noindex, refresh to the current pages)
+- Custom `404.html` is noindex
 
 This repository contains only the public site files. The private career vault lives in a separate repo.
