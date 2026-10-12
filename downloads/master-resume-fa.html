@@ -1,259 +1,570 @@
 <!DOCTYPE html>
-<html dir="rtl" lang="fa">
+<html lang="fa" dir="rtl">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>محمدرضا وظیفه - رزومه</title>
+  <title>محمدرضا وظیفه — رزومه جامع</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    @import url("https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css");
-
     :root {
-      --ink: #111111;
-      --muted: #333333;
-      --rule: #111111;
+      --ink: #161616;
+      --muted: #3a3a3a;
+      --header: #17191d;
+      --header-ink: #f4f1eb;
+      --header-muted: #c9c3b8;
+      --gold: #c6a36a;
+      --frame: #cfc6b8;
+      --job-frame: #e3d9cc;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    @page {
-      size: A4;
-      margin: 12mm 15mm;
-    }
+    @page { size: A4; margin: 11mm 12mm; }
 
     html, body {
       background: #fff;
       color: var(--ink);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
     }
 
     body {
-      font-family: "Vazirmatn", Tahoma, sans-serif;
-      font-size: 10.5pt;
-      line-height: 1.45;
+      font-family: Vazirmatn, Tahoma, "Segoe UI", sans-serif;
+      font-size: 9.4pt;
+      line-height: 1.46;
       font-weight: 400;
-      max-width: 178mm;
+      max-width: 186mm;
       margin: 0 auto;
-      padding: 12mm 0;
-      direction: rtl;
-      text-align: right;
-      -webkit-font-smoothing: antialiased;
+      padding: 0;
     }
 
-    a {
-      color: var(--ink);
-      text-decoration: none;
+    a { color: inherit; text-decoration: none; }
+
+    .ltr {
+      direction: ltr;
+      unicode-bidi: isolate;
     }
 
-    header { margin-bottom: 10pt; }
+    .contact .ltr {
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+      background: var(--header);
+      color: var(--header-ink);
+      padding: 8px 11px 7px;
+      margin-bottom: 6pt;
+      border: 1px solid var(--header);
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .who { flex: 1; min-width: 0; }
 
     h1 {
-      font-size: 18pt;
+      font-size: 16.5pt;
       font-weight: 700;
-      letter-spacing: 0;
-      line-height: 1.2;
+      letter-spacing: -0.01em;
+      line-height: 1.15;
     }
 
     .title {
-      font-size: 11pt;
+      font-size: 10.2pt;
       font-weight: 600;
-      margin-top: 2pt;
-      color: var(--muted);
+      margin-top: 3pt;
+      color: var(--gold);
+      line-height: 1.35;
     }
 
     .contact {
-      font-size: 9pt;
+      font-size: 8.3pt;
       margin-top: 4pt;
       line-height: 1.45;
-      color: var(--muted);
+      color: var(--header-muted);
+    }
+
+    .photo {
+      width: 24mm;
+      height: 30mm;
+      object-fit: cover;
+      object-position: center 12%;
+      flex: 0 0 auto;
+      border: 1px solid var(--gold);
+    }
+
+    section {
+      border: 1px solid var(--frame);
+      padding: 4pt 7pt 3pt;
+      margin: 0 0 5pt;
     }
 
     h2 {
       font-size: 10pt;
       font-weight: 700;
-      letter-spacing: 0.04em;
-      border-bottom: 1px solid var(--rule);
-      padding-bottom: 2pt;
-      margin: 11pt 0 6pt;
+      letter-spacing: 0;
+      text-transform: none;
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 1.5pt;
+      margin: 0 0 3pt;
     }
 
-    p { margin: 0 0 6pt; }
-
-    .competencies { font-size: 10pt; }
-    .competencies p { margin-bottom: 3pt; }
-
-    .job { margin-bottom: 9pt; }
-
-    .job-head {
-      display: block;
+    h3 {
+      font-size: 9.4pt;
       font-weight: 700;
-      font-size: 10.5pt;
+      margin: 4pt 0 2pt;
     }
 
-    .job-meta {
+    p { margin: 0 0 3pt; }
+    p:last-child { margin-bottom: 0; }
+
+    .competencies p { margin-bottom: 1.5pt; font-size: 9.1pt; }
+
+    .job-columns,
+    .job {
+      display: grid;
+      grid-template-columns: 34mm minmax(0, 1fr);
+      column-gap: 0;
+    }
+
+    .job-columns {
+      border: 1px solid var(--ink);
+      border-bottom: 0;
+      background: #f7f4ee;
+      font-weight: 700;
+      font-size: 8pt;
+    }
+
+    .job-columns span { padding: 2pt 5pt; }
+
+    .job-columns span + span { border-inline-start: 1px solid var(--ink); }
+    .job-columns { break-after: avoid; page-break-after: avoid; }
+
+    .job {
+      border: 1px solid var(--ink);
+      border-inline-start: 2px solid var(--gold);
+      padding: 0;
+      margin: 0 0 5pt;
+    }
+
+    .job:last-child { margin-bottom: 0; }
+
+    .employer {
+      border-inline-end: 1px solid var(--ink);
+      padding: 4pt 4pt 3pt;
+      text-align: center;
+    }
+
+    .description {
+      padding: 3pt 6pt 3pt;
+      min-width: 0;
+    }
+
+    .logo {
       display: block;
-      font-size: 9pt;
+      width: auto;
+      max-width: 30mm;
+      max-height: 14mm;
+      height: auto;
+      margin: 0 auto 2pt;
+      object-fit: contain;
+    }
+
+    .employer p { margin: 0; }
+
+    .employer-name {
+      font-weight: 700;
+      font-size: 8pt;
+      line-height: 1.3;
+    }
+
+    .employer-type,
+    .dates,
+    .place {
+      font-size: 7.6pt;
       color: var(--muted);
-      margin: 1pt 0 3pt;
+      font-weight: 400;
+      line-height: 1.3;
+      margin-top: 1pt;
+    }
+
+    .time-label {
+      font-weight: 700;
+      font-size: 7.6pt;
+      margin-top: 3pt;
+    }
+
+    .role,
+    .project {
+      font-size: 9pt;
+      line-height: 1.35;
+      margin: 0;
+    }
+
+    .activity {
+      display: block;
+      max-width: 100%;
+      max-height: 28mm;
+      width: auto;
+      object-fit: contain;
+      margin: 2pt 0 1pt;
+    }
+
+    .tools {
+      font-size: 8pt;
+      line-height: 1.35;
+      margin-top: 2pt;
+    }
+
+    li .ltr,
+    .role .ltr,
+    .project .ltr,
+    .employer .ltr {
+      white-space: nowrap;
+    }
+
+    html[dir="rtl"] .tools .ltr {
+      display: block;
+      direction: ltr;
+      text-align: right;
+      white-space: normal;
     }
 
     ul {
-      margin: 0 14pt 0 0;
+      margin: 0;
       padding: 0;
+      padding-inline-start: 1.15em;
+      list-style-position: outside;
     }
 
-    li { margin-bottom: 2.5pt; }
-
-    .certs li, .edu li { margin-bottom: 2pt; }
-
-    .ltr {
-      direction: ltr;
-      unicode-bidi: isolate;
-      display: inline;
-      font-family: "Vazirmatn", Tahoma, sans-serif;
-    }
+    li { margin-bottom: 2pt; }
+    .certs li, .edu li { margin-bottom: 1.2pt; }
 
     @media print {
-      @page {
-        size: A4;
-        margin: 12mm 15mm;
-      }
       html, body { background: #fff; }
-      body {
-        padding: 0;
-        max-width: none;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
-      a { text-decoration: none; color: var(--ink); }
-      h2 { break-after: avoid; }
-      .job { break-inside: avoid; }
+      body { padding: 0; max-width: none; }
+      a { text-decoration: none; }
+      header, h2, h3, .role, .project, .employer { break-after: avoid; }
+      .employer { break-inside: avoid; }
+      header { break-inside: avoid; }
+      section { break-inside: auto; }
+      .job { break-inside: avoid; page-break-inside: avoid; }
+      li { break-inside: avoid; }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>محمدرضا وظیفه</h1>
-    <p class="title">توسعه‌دهنده فول‌استک <span class="ltr">.NET</span> و معمار نرم‌افزار</p>
-    <p class="contact">
-      شیراز، ایران
-      · <a href="mailto:mv6468@gmail.com"><span class="ltr">mv6468@gmail.com</span></a>
-      · <span class="ltr">+98 933 229 7757</span>
-      · <a href="https://mohammadrezav.ir"><span class="ltr">mohammadrezav.ir</span></a>
-      · <a href="https://www.linkedin.com/in/sirtype/"><span class="ltr">linkedin.com/in/sirtype</span></a>
-      · <a href="https://github.com/SirTypeOfficial"><span class="ltr">github.com/SirTypeOfficial</span></a>
-    </p>
+    <div class="who">
+      <h1>محمدرضا وظیفه</h1>
+      <p class="title">توسعه‌دهنده فول‌استک <span class="ltr">.NET</span> و معمار نرم‌افزار</p>
+      <p class="contact">
+        شیراز، ایران
+        · <a class="ltr" href="tel:+989332297757">+98 933 229 7757</a>
+        · <a class="ltr" href="mailto:mv6468@gmail.com"><span class="ltr">mv6468</span>@<span class="ltr">gmail.com</span></a>
+      </p>
+      <p class="contact">
+        <a class="ltr" href="https://mohammadrezav.ir"><span class="ltr">mohammadrezav.ir</span></a>
+        · <a class="ltr" href="https://www.linkedin.com/in/sirtype/"><span class="ltr">linkedin.com/in/sirtype</span></a>
+        · <a class="ltr" href="https://github.com/SirTypeOfficial"><span class="ltr">github.com/SirTypeOfficial</span></a>
+      </p>
+    </div>
+    <img class="photo" src="../assets/images/profile.jpg" alt="محمدرضا وظیفه">
   </header>
 
   <section>
-    <h2>خلاصه مدیریتی</h2>
-    <p>توسعه‌دهنده نرم‌افزار با بیش از ۸ سال سابقه پروداکشن تجاری در اکوسیستم دات‌نت، متمرکز بر سیستم‌های توزیع‌شده، معماری تمیز و اتوماسیون فرایندها. مسیر دات‌نت از دوره <span class="ltr">OOP</span> و <span class="ltr">C#</span> در ۱۳۹۲ است. کار روزمره روی <span class="ltr">.NET 9/10</span>، <span class="ltr">DDD</span>، <span class="ltr">CQRS</span> و <span class="ltr">Microservices</span> است. هوش مصنوعی کاربردی و بینایی ماشین را در تولید با <span class="ltr">ALPR</span> روی <span class="ltr">Python</span> و <span class="ltr">FastAPI</span> جلو بردم، به‌علاوه مهندسی پرامپت و ایجنت در حلقه توسعه. اتوماسیون داده و فرایند با پایپ‌لاین <span class="ltr">n8n</span>، <span class="ltr">Redis</span>، <span class="ltr">SignalR</span>، <span class="ltr">RabbitMQ</span> و سیستم‌های الگوریتمی <span class="ltr">MQL5</span>. در ۱۴۰۴ تا ۱۴۰۵ اشتغال رسمی تمام‌وقت روی پلتفرم سرویس مدارس با بیش از ۲۰۰ هزار کاربر در بعضی شهرها داشتم، و به‌صورت پیمانکار پاره‌وقت دورکار فرانت <span class="ltr">ERP</span> طلا را برای بازار کویت روی <span class="ltr">MAUI</span> در عیار پلاس جلو بردم؛ آن کار خارج از ساعات تعهد سازمانی پژوهان بود.</p>
+    <h2>خلاصه حرفه‌ای</h2>
+    <p>توسعه‌دهنده فول‌استک <span class="ltr">.NET</span> و معمار نرم‌افزار، با تولید تجاری از تیر ۱۳۹۷. کار روز روی <span class="ltr">.NET 10</span>، <span class="ltr">Clean Architecture</span>، <span class="ltr">SQL Server</span> و <span class="ltr">FastAPI</span> است، برای سرویس مدارس، <span class="ltr">ERP</span> طلا و جستجوی کالا. تسویه سرویس مدارس را برای بیش از ۲۰۰ هزار کاربر در بعضی شهرها بستم.</p>
   </section>
 
   <section>
-    <h2>شایستگی‌های فنی</h2>
+    <h2>شایستگی‌های اصلی</h2>
     <div class="competencies">
-      <p><strong>معماری:</strong> <span class="ltr">Microservices</span>، <span class="ltr">Clean Architecture</span>، <span class="ltr">Onion Architecture</span>، <span class="ltr">DDD</span>، <span class="ltr">CQRS</span>، <span class="ltr">Event-Driven</span></p>
-      <p><strong>زبان‌ها و فریم‌ورک‌ها:</strong> <span class="ltr">.NET 9/10</span>، <span class="ltr">C#</span>، <span class="ltr">ASP.NET Core</span>، <span class="ltr">Blazor Hybrid</span>، <span class="ltr">.NET MAUI</span>، <span class="ltr">XAML</span>، <span class="ltr">Python</span>، <span class="ltr">FastAPI</span>، <span class="ltr">Kotlin</span></p>
-      <p><strong>داده / پیام‌رسانی / اتوماسیون:</strong> <span class="ltr">PostgreSQL</span>، <span class="ltr">Redis</span>، <span class="ltr">RabbitMQ</span>، <span class="ltr">SignalR</span>، <span class="ltr">n8n</span>، <span class="ltr">MQL5</span>، <span class="ltr">Docker</span>، <span class="ltr">CI/CD</span></p>
-      <p><strong>کلاینت و پشتیبان:</strong> <span class="ltr">Vue.js</span>، <span class="ltr">Angular</span>، <span class="ltr">SQL Server</span>، <span class="ltr">Bit Platform</span>، <span class="ltr">ImageKit</span>، <span class="ltr">PHP</span> (اتصال از کلاینت)، <span class="ltr">Figma</span> (ابزار جانبی)</p>
+      <p><strong>هسته پروداکشن:</strong> <span class="ltr">.NET 9/10 | ASP.NET Core | C# | Clean Architecture | Onion Architecture | DDD | CQRS | Microservices | SQL Server | EF Core | RabbitMQ</span></p>
+      <p><strong>کلاینت و موبایل:</strong> <span class="ltr">Blazor | Blazor Hybrid | .NET MAUI | Bit Platform | XAML | Kotlin | Jetpack Compose | Capacitor | WebView | Xamarin.Android | Android</span></p>
+      <p><strong>داده، پیام، اتوماسیون:</strong> <span class="ltr">PostgreSQL | Redis | SignalR | pgvector | Hangfire | n8n | MQL4 | MQL5 | Docker | Blockchain | smart contracts</span></p>
+      <p><strong>هوش کاربردی:</strong> <span class="ltr">Python | FastAPI | ALPR | YOLO | OpenCV | Hezar</span> | OCR فارسی</p>
+      <p><strong>وب و تحویل:</strong> <span class="ltr">Vue.js | PHP | ASP.NET MVC | Razor Pages | CI/CD | Git | IIS | Serilog</span></p>
+      <p><strong>آشنایی، مهارت پروفایل نیست:</strong> Kubernetes (تست شخصی، ارکستریشن تولید نبود). Pine Script (تمرین روی مسیر معاملاتی). Digital Marketing، MBA و DBA در بازه مستقل فقط آشنایی و تمرین بودند. DBA در حد کانفیگ، جاب نگهداری، بکاپ Full و لاگ، و Restore در سطح برنامه بود. Always On و کلاستر در تولید چیده نشد.</p>
     </div>
   </section>
 
   <section>
-    <h2>سوابق شغلی</h2>
+    <h2>تجربه فنی کلیدی</h2>
 
+    <div class="job-columns">
+      <span>کارفرما</span>
+      <span>شرح</span>
+    </div>
     <article class="job">
-      <span class="job-head">پیمانکار دات‌نت و مشاور فنی دورکار پاره‌وقت | عیار پلاس</span>
-      <span class="job-meta">دورکار (ایران)؛ بازار کویت | مهر ۱۴۰۴ - شهریور ۱۴۰۵</span>
-      <ul>
-        <li>فرانت <span class="ltr">ERP</span> طلا را روی <span class="ltr">.NET MAUI</span> و <span class="ltr">.NET 10</span> جلو بردم: موجودی طلا، محاسبات طلا و حسابداری روی کلاینت چندزبانه <span class="ltr">XAML</span> متصل به بک‌اند <span class="ltr">PHP</span>.</li>
-        <li>صدور فاکتور را هم آنلاین هم آفلاین نگه داشتم؛ درخواست‌ها تا آنلاین شدن صف می‌شدند و کلاینت ویندوز، کلاینت اندروید را روی شبکه پیدا می‌کرد.</li>
-        <li>انتشار فروشگاهی را بدون قطع کار مشتری نگه داشتم؛ خروجی <span class="ltr">Android</span> و <span class="ltr">iOS</span> با <span class="ltr">CI/CD</span> خودکار روی <span class="ltr">Google Play</span> و <span class="ltr">App Store</span> می‌رفت.</li>
-        <li>اسکن <span class="ltr">Civil ID</span> را به گردش طلافروشی کویت وصل کردم؛ عکس کارت روی <span class="ltr">ImageKit</span> ذخیره می‌شد و در اپ اندروید استفاده می‌شد، از مسیر اتصال به کارتخوان مغازه.</li>
-        <li>بازنویسی کراس‌پلتفرم را روی <span class="ltr">Bit Platform</span> شروع کردم؛ دادهٔ قدیمی را منتقل کردم و چاپ <span class="ltr">PDF</span> رسید و فاکتور را اضافه کردم.</li>
-      </ul>
+      <div class="employer">
+        <img class="logo" src="media/logos/ayar-plus.png" alt="عیار پلاس" onerror="this.remove()">
+        <p class="employer-name">عیار پلاس</p>
+        <p class="employer-type">پاره‌وقت / پیمانکار دورکار، خارج از ساعات پژوهان</p>
+        <p class="time-label">بازه</p>
+        <p class="dates">مهر ۱۴۰۴ – شهریور ۱۴۰۵</p>
+        <p class="place">دورکار از ایران؛ بازار کویت</p>
+      </div>
+      <div class="description">
+        <p class="role"><strong>نقش:</strong> پیمانکار دات‌نت و مشاور فنی دورکار پاره‌وقت</p>
+        <p class="project"><strong>پروژه:</strong> <span class="ltr">ERP</span> طلای کویت</p>
+        <ul>
+          <li>کلاینت <span class="ltr">ERP</span> طلا را روی <span class="ltr">.NET MAUI</span> و <span class="ltr">.NET 10</span> ساختم تا موجودی، محاسبات طلا و حسابداری روی صفحه چندزبانه <span class="ltr">XAML</span> در برابر <span class="ltr">PHP</span> کار کند.</li>
+          <li>فاکتور را وقتی شبکه مغازه قطع بود هم صادر نگه داشتم، با صف محلی، وضعیت ارسال، و رفع تعارض با آخرین تغییر یا نسخه سرور. <span class="ltr">API</span> نسخه <span class="ltr">v1/v2</span> کلاینت قدیمی و فاکتور آفلاین را بعد از به‌روز شدن سرور سرپا نگه می‌داشت و کلاینت ویندوز، کلاینت اندروید را روی شبکه محلی پیدا می‌کرد.</li>
+          <li><span class="ltr">ShopSync</span> را به مغازه‌ها رساندم تا فاکتور هنگام قطع <span class="ltr">WAN</span> هم صادر شود. کلاینت <span class="ltr">MAUI</span> دیتابیس محلی ندارد. سرور <span class="ltr">ASP.NET</span> روی <span class="ltr">LAN</span> منبع حقیقت است و <span class="ltr">Outbox</span> با <span class="ltr">idempotency</span> به <span class="ltr">Akaunting</span> همگام می‌شود. فروش تجاری به چند طلافروشی بود. عدد لایسنس ثبت نشده.</li>
+          <li>بیلد اندروید و <span class="ltr">iOS</span> را با <span class="ltr">CI/CD</span> و <span class="ltr">Azure Pipelines</span> به <span class="ltr">Google Play</span> و <span class="ltr">App Store</span> رساندم تا انتشار برای مشتری‌های در حال کار ادامه پیدا کند.</li>
+          <li>کارتخوان <span class="ltr">Civil ID</span> طلافروشی کویت را وصل کردم و عکس کارت را روی <span class="ltr">ImageKit</span> برای اپ اندروید نگه داشتم. یک <span class="ltr">PC</span> جدا در مغازه به همان کارتخوان وصل بود و دیباگ از راه دور روی همان <span class="ltr">PC</span> بود.</li>
+          <li>بخشی از قرارداد، اسپرینت هفتگی دورکار را با جلسه روزانه و هفتگی بین مشهد، قم و <span class="ltr">Product Owner</span> جلو بردم.</li>
+          <li>بازنویسی کامل کراس‌پلتفرم <span class="ltr">Bit Platform</span> را با انتقال داده قدیمی به سیستم جدید و چاپ <span class="ltr">PDF</span> رسید و فاکتور شروع کردم. همان بازنویسی روی <span class="ltr">Blazor Hybrid</span> با بک‌اند <span class="ltr">ASP.NET</span> رفت، چون <span class="ltr">PHP</span> کند و اتصال به آن سخت بود. مهاجرت <span class="ltr">KaratFlow</span> داده <span class="ltr">Akaunting</span> (<span class="ltr">Laravel/PHP</span>) را به اسکیمای بازطراحی‌شده برد. سخت‌ترین بخش گرد کردن <span class="ltr">KWD</span> و دقت اعشار بود.</li>
+          <li><span class="ltr">KaratFlow</span> در همین قرارداد دفتر دوگانه وزن طلای 999 و <span class="ltr">KWD</span> را روی فاکتور، خرید و رسید نگه می‌دارد و <span class="ltr">PACI</span> روی ویندوز <span class="ltr">Civil ID</span> را می‌خواند. پروژه موازی و مجاور است. رویکرد همگام‌سازی نزدیک <span class="ltr">ShopSync</span> آنجا تکرار شد و طرح کلاینت یکی نیست.</li>
+          <li>پایلوت <span class="ltr">RAG</span> باهم‌شاپ را برای سؤال محصول و مستند عیار هم امتحان کردم. جواب در جدول بازبینی می‌ماند و مسیر صدور فاکتور نبود.</li>
+        </ul>
+        <img class="activity" src="media/activities/ayar-plus.png" alt="" onerror="this.remove()">
+        <p class="tools"><strong>ابزار و تکنولوژی:</strong> <span class="ltr">.NET 10, .NET MAUI, XAML, ShopSync, Bit Platform, Blazor, ASP.NET Core, PHP, Akaunting, PostgreSQL, Redis, SignalR, Hangfire, QuestPDF, EF Core, CI/CD, Azure Pipelines, ImageKit</span></p>
+      </div>
     </article>
 
     <article class="job">
-      <span class="job-head">توسعه‌دهنده فول‌استک تمام‌وقت (On-site/Hybrid) | ارتباطات پژوهان متین</span>
-      <span class="job-meta">شیراز، ایران | تیر ۱۴۰۴ - پایان تیر ۱۴۰۵</span>
-      <ul>
-        <li>پلتفرم سرویس مدارس را روی <span class="ltr">C#</span> و <span class="ltr">Onion Architecture</span> جلو بردم (توسعه، گزارش، کوئری سریع‌تر) برای شهرداری‌های شیراز، اصفهان و قزوین.</li>
-        <li>حسابداری چندنقشه و درگاه پرداخت را روی همان پلتفرم نگه داشتم؛ در بعضی شهرها بیش از ۲۰۰ هزار کاربر، با جریان مالی بین ناوگان، سرویس، راننده، دانش‌آموز و ولی.</li>
-        <li>سفیر مهر را با <span class="ltr">Kotlin</span>، <span class="ltr">WebView</span> و <span class="ltr">Capacitor</span> iOS تحویل دادم، با طعم‌های اصفهان و شیراز، تا مشتری از بدو ورود اپ مدیریت ناوگان داشته باشد.</li>
-        <li>پلاک‌خوان خودکار را به گردش بازرس وصل کردم؛ متن پلاک از روی عکس برمی‌گشت، با <span class="ltr">Python</span> و <span class="ltr">FastAPI</span>.</li>
-        <li>دموی <span class="ltr">OnlineTaxiMatin</span> را جدا ساختم: OTP، نقشه، کرایه، درخواست و قبول یا رد، روی <span class="ltr">.NET 10</span>، <span class="ltr">PostgreSQL</span>، <span class="ltr">EF Core</span>، <span class="ltr">SignalR</span> و <span class="ltr">Leaflet</span>. <span class="ltr">SmartTaxi</span> سولوشن جداست با Domain، Application، Infrastructure، کلاینت اندروید و Docker.</li>
-      </ul>
+      <div class="employer">
+        <img class="logo" src="media/logos/ertebatat-pazhouhan.png" alt="شرکت دانش‌بنیان ارتباطات پژوهان متین" onerror="this.remove()">
+        <p class="employer-name">شرکت دانش‌بنیان ارتباطات پژوهان متین</p>
+        <p class="employer-type">تمام‌وقت / <span class="ltr">On-site-Hybrid</span>، اشتغال رسمی اصلی</p>
+        <p class="time-label">بازه</p>
+        <p class="dates">تیر ۱۴۰۴ – پایان تیر ۱۴۰۵</p>
+        <p class="place">شیراز، ایران</p>
+      </div>
+      <div class="description">
+        <p class="role"><strong>نقش:</strong> توسعه‌دهنده فول‌استک تمام‌وقت (<span class="ltr">On-site/Hybrid</span>)</p>
+        <p class="project"><strong>پروژه:</strong> سرویس مدارس شهرداری</p>
+        <ul>
+          <li>قفل گزارش تردد را در ساعت اوج روی <span class="ltr">SQL Server</span> برداشتم، با خواندن <span class="ltr">Execution Plan</span> و ایندکس <span class="ltr">Non-Clustered</span> روی تاریخ و فیلترهای پرتکرار. <span class="ltr">Serilog</span> لاگ ساختاریافته را روی <span class="ltr">IIS</span> می‌نوشت.</li>
+          <li>سفیر مهر را برای راننده، دانش‌آموز و ولی تحویل دادم، با طعم‌های اصفهان و شیراز، روی <span class="ltr">Kotlin</span> و <span class="ltr">Jetpack Compose</span>، پوسته نیتیو با <span class="ltr">WebView</span>، و <span class="ltr">iOS</span> با <span class="ltr">Capacitor</span>. ولی وضعیت راننده را از موقعیت راننده می‌دید و هشدار آمادگی دانش‌آموز با <span class="ltr">FCM</span> از روی محدوده راننده می‌رفت.</li>
+          <li>ماه اول را روی سامانه در حال تولید گذراندم، روی بیش از ۸۰ جدول در حوزه‌های فرایندی مختلف. سند حرفه‌ای بیشتر سیستم هنگام ورود روشن نبود.</li>
+          <li>سرویس‌بندی هوشمند را در همان سولوشن <span class="ltr">Onion</span> چندشهره کار کردم. مسیر دانش‌آموز و سرویس، تخصیص مدرسه و راننده را تعیین می‌کرد و مدیریت قرارداد و محاسبه هزینه در همان دامنه بود.</li>
+          <li>داشبورد را با بهینه‌سازی کوئری و ارتقای نسخه <span class="ltr">.NET</span> پروژه سریع‌تر کردم. تست‌های داخل پروژه سرعت واکشی را در حجم‌ها و حالت‌های مختلف داده مقایسه می‌کرد.</li>
+          <li>تسویه را بین ناوگان، سرویس، راننده، دانش‌آموز و ولی برای بیش از ۲۰۰ هزار کاربر در بعضی شهرها درست نگه داشتم، با توکن، <span class="ltr">Verify</span> و یک ردیف دفتر. پلتفرم برای شهرداری‌های شیراز، اصفهان و قزوین بود.</li>
+          <li>پلاک‌خوان را به گردش بازرس وصل کردم تا ردیف تردد فقط بعد از اعتبارسنجی ناوگان نوشته شود، روی <span class="ltr">FastAPI</span>، مدل خانواده <span class="ltr">YOLO</span>، <span class="ltr">OCR</span> فارسی و <span class="ltr">OpenCV</span>. امتیاز اطمینان پایین، یا <span class="ltr">timeout</span> حدود ۳ ثانیه، به ثبت دستی برمی‌گشت. سرویس جدا از <span class="ltr">API</span> اصلی بود.</li>
+          <li>دموی <span class="ltr">OnlineTaxiMatin</span> را ساختم: <span class="ltr">OTP</span>، نقشه، کرایه، درخواست سفر، و قبول یا رد راننده، روی <span class="ltr">.NET 10</span>، <span class="ltr">Razor Pages</span>، <span class="ltr">Blazor Server</span>، <span class="ltr">PostgreSQL</span> و <span class="ltr">SignalR</span>.</li>
+          <li><span class="ltr">SmartTaxi</span> را سولوشن جدا نگه داشتم، با تفکیک <span class="ltr">Domain</span> / <span class="ltr">Application</span> / <span class="ltr">Infrastructure</span>، کلاینت اندروید و <span class="ltr">Docker</span>.</li>
+        </ul>
+        <img class="activity" src="media/activities/ertebatat-pazhouhan.png" alt="" onerror="this.remove()">
+        <p class="tools"><strong>ابزار و تکنولوژی:</strong> <span class="ltr">C#, ASP.NET Core, Onion Architecture, SQL Server, Serilog, IIS, Kotlin, Jetpack Compose, Capacitor, FCM, FastAPI, Python, OpenCV, .NET 10, PostgreSQL, SignalR</span></p>
+      </div>
     </article>
 
     <article class="job">
-      <span class="job-head">راهبر فنی و مهندس اتوماسیون داده و معماری بک‌اند | باهم‌شاپ</span>
-      <span class="job-meta">شیراز، ایران | دی ۱۴۰۳ - تیر ۱۴۰۴</span>
-      <ul>
-        <li>بک‌اند جستجو را با <span class="ltr">ASP.NET Core 9</span>، <span class="ltr">Clean Architecture</span> و کش جلو بردم و سایت را از صفر درآمد به درآمد ماه اول از کلیک سئو رساندم.</li>
-        <li>پایپ‌لاین <span class="ltr">n8n</span> برای تگ محصول و دسته‌بندی محتوا آماده می‌کرد؛ تیم سئو ویرایش و درج می‌کرد و همان مسیر سرعت ایندکس محصولات را بالا برد.</li>
-        <li>پاسخگویی جستجو را روی همان استک با مرزهای <span class="ltr">Clean Architecture</span> و کش جلو بردم.</li>
-      </ul>
+      <div class="employer">
+        <img class="logo" src="media/logos/baham-shop.png" alt="باهم‌شاپ" onerror="this.remove()">
+        <p class="employer-name">باهم‌شاپ</p>
+        
+        <p class="time-label">بازه</p>
+        <p class="dates">دی ۱۴۰۳ – تیر ۱۴۰۴</p>
+        <p class="place">شیراز، ایران</p>
+      </div>
+      <div class="description">
+        <p class="role"><strong>نقش:</strong> راهبر فنی و مهندس اتوماسیون داده و معماری بک‌اند</p>
+        <p class="project"><strong>پروژه:</strong> موتور جستجوی کالا</p>
+        <ul>
+          <li>سایت جستجوی کالا را از حالت بدون درآمد به درآمد ماه اول از کلیک سئو رساندم، روی <span class="ltr">ASP.NET Core 9</span> با <span class="ltr">Clean Architecture</span> و کش. کالا با <span class="ltr">scraper</span> وارد سایت می‌شد. اولین فروشندهٔ مارکت‌پلیس بزرگ را وارد کردم و کالاهای مشترک را وصل کردم. سایت به فروشگاه لینک می‌دهد، به ازای کلیک درآمد می‌گیرد، و سئو از ابتدا قوی بود.</li>
+          <li>با <span class="ltr">n8n</span> کاری کردم که مدل زبانی پیش‌نویس تگ، متن و خلاصه سئو را بسازد و تیم سئو قبل از انتشار آن را ویرایش و تأیید کند. همان مسیر سرعت ایندکس محصولات را هم بالا برد. همان پایپ‌لاین کلیدواژه و اطلاعات کالا را جمع کرد، متن را با <span class="ltr">H1/H2/H3</span> ساخت و انسانی کرد، و تا تأیید ادمین سایت منتشر نشد. حدود ۹٬۰۰۰ صفحهٔ سئو خیلی سریع‌تر ساخته شد.</li>
+          <li>تولید یک پروژه در یک سولوشن ماند و سرویس‌ها به همان پروژه اضافه شد. اسنپ‌شات قبلی ریپو <span class="ltr">ASP.NET Core 6 MVC</span> است (<span class="ltr">EF Core 7</span>، <span class="ltr">SQL Server</span>) و بعداً به <span class="ltr">ASP.NET Core 9</span> ارتقا یافت. مونوریپو / سوپراپ جایگزین تولید نشد. اسکریپت عکس‌های موجود را کوچک‌تر کرد تا صفحه سریع‌تر باز شود. دارایی‌های مشترک و کوئری‌های عمومی صفحهٔ اول به کش رفت.</li>
+          <li>اسکراپر منبع‌های مقایسهٔ قیمت ثالث را با <span class="ltr">timeout</span>، بلاک و تغییر پیاپی <span class="ltr">HTML</span> سرپا نگه داشتم، با حذف تکرار سخت روی کالا، عکس و تگ مقایسه.</li>
+          <li>پایلوت <span class="ltr">RAG</span> را برای پرسش محصول و مستند روی <span class="ltr">FastAPI</span>، <span class="ltr">pgvector</span> و <span class="ltr">embedding</span> مدل <span class="ltr">OpenAI</span> ساختم، با فیلتر <span class="ltr">SQL</span> روی دسته و موجودی. جواب برای بازبینی ذخیره می‌شد و روی ترافیک اصلی سایت نبود.</li>
+        </ul>
+        <img class="activity" src="media/activities/baham-shop.png" alt="" onerror="this.remove()">
+        <p class="tools"><strong>ابزار و تکنولوژی:</strong> <span class="ltr">ASP.NET Core 9, C#, Clean Architecture, n8n, FastAPI, PostgreSQL, pgvector, EF Core, SQL Server</span></p>
+      </div>
     </article>
 
     <article class="job">
-      <span class="job-head">مهندس مستقل؛ سیستم‌های معاملاتی، اتوماسیون و تحقیق معماری | کار مستقل</span>
-      <span class="job-meta">شیراز، ایران | دی ۱۴۰۱ - آذر ۱۴۰۳</span>
-      <ul>
-        <li>ربات معامله‌گر را روی <span class="ltr">MQL4</span> و <span class="ltr">MQL5</span> جلو بردم و ماژول‌ها را بک‌تست گرفتم.</li>
-        <li>کار مشتری پاره‌وقت را تا آذر ۱۴۰۳ نگه داشتم: سایت فروشگاهی و گردش <span class="ltr">n8n</span>.</li>
-        <li>مسیر <span class="ltr">Blazor Hybrid</span> و <span class="ltr">.NET MAUI</span> را روی کلاینت کراس‌پلتفرم بالا بردم، <span class="ltr">Docker</span> را وارد ابزارها کردم، و <span class="ltr">Onion Architecture</span>، <span class="ltr">Git</span> و <span class="ltr">DevOps</span> را نسبت به دوره‌های قبل عمیق‌تر کار کردم.</li>
-        <li>اتصال <span class="ltr">smart contract</span> به <span class="ltr">.NET</span> را در چند پروژهٔ نمونه ثبت کردم؛ قرارداد هوشمند داخل همان راه‌حل دات‌نت پیاده می‌شد.</li>
-      </ul>
+      <div class="employer">
+        <img class="logo" src="media/logos/independent.png" alt="کار مستقل" onerror="this.remove()">
+        <p class="employer-name">کار مستقل</p>
+        <p class="employer-type">مستقل؛ کار مشتری پاره‌وقت</p>
+        <p class="time-label">بازه</p>
+        <p class="dates">دی ۱۴۰۱ – آذر ۱۴۰۳</p>
+        <p class="place">شیراز، ایران</p>
+      </div>
+      <div class="description">
+        <p class="role"><strong>نقش:</strong> مهندس مستقل؛ سیستم‌های معاملاتی، اتوماسیون و تحقیق معماری</p>
+        <p class="project"><strong>پروژه:</strong> سیستم‌های معاملاتی و اتوماسیون مشتری</p>
+        <ul>
+          <li>ربات‌های <span class="ltr">MQL4</span> و <span class="ltr">MQL5</span> را با بک‌تست در سطح ماژول ساختم، به‌همراه قواعد بودجه و مدیریت سرمایه.</li>
+          <li>کار مشتری پاره‌وقت را با پایپ‌لاین <span class="ltr">n8n</span> و سایت فروشگاهی، به‌اضافه مشاوره موردی، تحویل دادم.</li>
+          <li>روی کلاینت کراس‌پلتفرم با <span class="ltr">Blazor Hybrid</span> و <span class="ltr">.NET MAUI</span> تمرین کردم و <span class="ltr">Docker</span> را برای بالا آوردن دیتابیس و سرویس تست روی لینوکس و ویندوز به کار بردم.</li>
+          <li>چند نمونه <span class="ltr">.NET</span> ساختم که <span class="ltr">smart contract</span> را داخل همان پروژه پیاده می‌کرد.</li>
+        </ul>
+        <img class="activity" src="media/activities/independent.png" alt="" onerror="this.remove()">
+        <p class="tools"><strong>ابزار و تکنولوژی:</strong> <span class="ltr">MQL4, MQL5, Python, n8n, Docker, Blazor Hybrid, .NET MAUI, Blockchain, smart contracts</span></p>
+      </div>
     </article>
 
     <article class="job">
-      <span class="job-head">پشتیبانی و توسعه اتوماسیون توزیع برق؛ بازنویسی میکروسرویس | پارسیا افزار فرااندیشان نوین</span>
-      <span class="job-meta">شیراز، ایران | مهر ۱۳۹۹ - دی ۱۴۰۱</span>
-      <ul>
-        <li>اتوماسیون توزیع برق را در تولید نگه داشتم؛ پاسخ تیکت، رفع اشکال و توسعه برای توزیع برق بوشهر، مازندران، تهران بزرگ، اراک و شهرهای دیگر، روی همان <span class="ltr">MVC</span> موجود.</li>
-        <li>بازنویسی یکپارچهٔ پروژه‌های اتوماسیون را پیش بردم؛ چند کدبیس جدا روی <span class="ltr">MVC</span> به یک سامانه <span class="ltr">Microservices</span> رفت، با <span class="ltr">CQRS</span>، <span class="ltr">RabbitMQ</span>، <span class="ltr">DDD</span>، <span class="ltr">Vue.js</span>، <span class="ltr">Monitoring</span> و <span class="ltr">.NET Core</span>.</li>
-        <li>سایت شرکت را روی <span class="ltr">CMS</span> اختصاصی گذاشتم تا محتوا از داخل شرکت به‌روز شود، با پیاده‌سازی <span class="ltr">ASP.NET Core MVC</span>.</li>
-      </ul>
+      <div class="employer">
+        <img class="logo" src="media/logos/parsia-afzar.png" alt="پارسیا افزار فرااندیشان نوین" onerror="this.remove()">
+        <p class="employer-name">پارسیا افزار فرااندیشان نوین</p>
+        <p class="employer-type">تمام‌وقت</p>
+        <p class="time-label">بازه</p>
+        <p class="dates">مهر ۱۳۹۹ – دی ۱۴۰۱</p>
+        <p class="place">شیراز، ایران</p>
+      </div>
+      <div class="description">
+        <p class="role"><strong>نقش:</strong> پشتیبانی و توسعه اتوماسیون توزیع برق؛ بازنویسی میکروسرویس</p>
+        <p class="project"><strong>پروژه:</strong> اتوماسیون توزیع برق</p>
+        <ul>
+          <li>اتوماسیون توزیع برق را برای بوشهر، مازندران، تهران بزرگ، اراک و شهرهای دیگر در تولید نگه داشتم، با پشتیبانی تیکتی و کار فیچر روی همان <span class="ltr">ASP.NET MVC</span>.</li>
+          <li>کدبیس‌های جدا <span class="ltr">MVC</span> را روی یک پلتفرم <span class="ltr">Microservices</span> با <span class="ltr">CQRS</span>، <span class="ltr">RabbitMQ</span>، <span class="ltr">DDD</span> و <span class="ltr">Vue.js</span> بازنویسی کردم. داده روی <span class="ltr">SQL Server</span> بود. <span class="ltr">EF Core</span> تفکیک اول خواندن و نوشتن را انجام داد و کوئری سنگین به <span class="ltr">Stored Procedure</span> رفت.</li>
+          <li><span class="ltr">CMS</span> اختصاصی <span class="ltr">ASP.NET Core MVC</span> را برای سایت شرکت ساختم تا محتوا از داخل همان سامانه به‌روز شود.</li>
+        </ul>
+        <img class="activity" src="media/activities/parsia-afzar.png" alt="" onerror="this.remove()">
+        <p class="tools"><strong>ابزار و تکنولوژی:</strong> <span class="ltr">C#, ASP.NET MVC, ASP.NET Core, Microservices, CQRS, RabbitMQ, DDD, Vue.js, SQL Server, EF Core, Serilog</span></p>
+      </div>
     </article>
 
     <article class="job">
-      <span class="job-head">توسعه‌دهنده <span class="ltr">.NET</span>؛ در اواخر دوره مدیریت پروژه | رستا تجارت بین‌الملل رستاک</span>
-      <span class="job-meta">شیراز، ایران | مهر ۱۳۹۸ - مرداد ۱۳۹۹</span>
-      <ul>
-        <li>گردش‌کار سازمان را با کمک مدیر پروژه وقت از روش سنتی به <span class="ltr">Git</span>، <span class="ltr">Agile/Scrum</span> و <span class="ltr">DevOps</span> رساندم.</li>
-        <li>در اواخر دوره، پس از خروج مدیر پروژه وقت، پیگیری پروژه‌ها را خودم ادامه دادم تا <span class="ltr">CRM</span> و پلتفرم سرمایه‌گذاری تحت شبکه تحویل بماند.</li>
-        <li>روی فرانت <span class="ltr">CRM</span> با <span class="ltr">Angular</span> کار کردم؛ <span class="ltr">Angular</span> را روی همان محصول یاد گرفتم و پیاده کردم.</li>
-      </ul>
+      <div class="employer">
+        <img class="logo" src="media/logos/rasta-tejarat.png" alt="هلدینگ بین‌المللی رستاک" onerror="this.remove()">
+        <p class="employer-name">هلدینگ بین‌المللی رستاک</p>
+        
+        <p class="time-label">بازه</p>
+        <p class="dates">مهر ۱۳۹۸ – مرداد ۱۳۹۹</p>
+        <p class="place">شیراز، ایران</p>
+      </div>
+      <div class="description">
+        <p class="role"><strong>نقش:</strong> توسعه‌دهنده <span class="ltr">.NET</span>؛ در اواخر دوره مدیریت پروژه</p>
+        <p class="project"><strong>پروژه:</strong> <span class="ltr">CRM</span> و پلتفرم سرمایه‌گذاری</p>
+        <ul>
+          <li><span class="ltr">Git</span> را با مدیر پروژه وقت وارد کار روزانه کردم و تیم را روی <span class="ltr">Agile/Scrum</span> بردم. اولین استفاده کاری من از <span class="ltr">Git</span> و <span class="ltr">DevOps</span> همین‌جا بود.</li>
+          <li>بعد از رفتن مدیر پروژه، تحویل <span class="ltr">CRM</span> و پلتفرم سرمایه‌گذاری تحت شبکه را ادامه دادم، از جمله <span class="ltr">Angular</span> روی فرانت <span class="ltr">CRM</span>. بک‌اند <span class="ltr">CRM</span> با <span class="ltr">ASP.NET Core 3.1</span> است.</li>
+        </ul>
+        <img class="activity" src="media/activities/rasta-tejarat.png" alt="" onerror="this.remove()">
+        <p class="tools"><strong>ابزار و تکنولوژی:</strong> <span class="ltr">C#, ASP.NET Core 3.1, Angular, Git, SQL Server</span></p>
+      </div>
     </article>
 
     <article class="job">
-      <span class="job-head">توسعه‌دهنده <span class="ltr">.NET</span> | نیکان اکسیر ویستا رایان</span>
-      <span class="job-meta">شیراز، ایران | تیر ۱۳۹۷ - مهر ۱۳۹۸</span>
-      <ul>
-        <li>بک‌اند نوبت‌دهی را با <span class="ltr">REST</span> در اختیار <span class="ltr">PWA</span> تیم گذاشتم؛ از تیر ۱۳۹۷ تا مهر ۱۳۹۸ در تولید، روی <span class="ltr">ASP.NET Core</span> و <span class="ltr">SQL Server</span>، در اولین نقش تولید <span class="ltr">.NET</span>.</li>
-      </ul>
+      <div class="employer">
+        <img class="logo" src="media/logos/nikan-exir.png" alt="نیکان اکسیر ویستا رایان" onerror="this.remove()">
+        <p class="employer-name">نیکان اکسیر ویستا رایان</p>
+        
+        <p class="time-label">بازه</p>
+        <p class="dates">تیر ۱۳۹۷ – مهر ۱۳۹۸</p>
+        <p class="place">شیراز، ایران</p>
+      </div>
+      <div class="description">
+        <p class="role"><strong>نقش:</strong> توسعه‌دهنده <span class="ltr">.NET</span></p>
+        <p class="project"><strong>پروژه:</strong> نوبت‌دهی</p>
+        <ul>
+          <li><span class="ltr">API</span> نوبت‌دهی <span class="ltr">REST</span> را برای <span class="ltr">PWA</span> تیم ساختم و تا پایان همین دوره در تولید نگه داشتم، روی <span class="ltr">ASP.NET Core</span> و <span class="ltr">SQL Server</span>. شرکت نرم‌افزار حسابداری می‌ساخت.</li>
+        </ul>
+        <img class="activity" src="media/activities/nikan-exir.png" alt="" onerror="this.remove()">
+        <p class="tools"><strong>ابزار و تکنولوژی:</strong> <span class="ltr">C#, ASP.NET Core, SQL Server</span></p>
+      </div>
     </article>
   </section>
 
   <section>
-    <h2>مدارک تأییدشده</h2>
+    <h2>پروژه‌های شاخص</h2>
+
+    <h3>ERP طلا، کویت | عیار پلاس</h3>
+    <ul>
+      <li><span class="ltr">AyarPlus1/MAUI-App</span>: کلاینت تولید <span class="ltr">Ayar+</span> برای فاکتور، نرخ طلا، <span class="ltr">RBAC</span>، همگام‌سازی <span class="ltr">Ably</span> و شش زبان، روی <span class="ltr">.NET 10 MAUI</span> و <span class="ltr">API</span> لاراول، با <span class="ltr">OneSignal</span> و <span class="ltr">Sentry</span>.</li>
+      <li><span class="ltr">AyarPlus1/AyarPlusBlazorMAUI</span>: <span class="ltr">ERP</span> عمده طلای کویت با دفتر دوگانه طلای 999 و دینار، <span class="ltr">PACI</span> و <span class="ltr">KNET</span>، روی <span class="ltr">.NET 10</span>، <span class="ltr">Blazor Hybrid/MAUI</span>، <span class="ltr">PostgreSQL</span>، <span class="ltr">Redis</span> و <span class="ltr">QuestPDF</span>.</li>
+      <li><span class="ltr">AyarPlus1/AyarPlusBit</span>: <span class="ltr">ERP</span> طلا و جواهر روی <span class="ltr">Bit Platform</span>، آفلاین‌اول، نرخ با <span class="ltr">SignalR</span>، و <span class="ltr">RAG</span>، روی <span class="ltr">.NET 10</span>، <span class="ltr">Blazor WASM/MAUI</span>، <span class="ltr">PostgreSQL</span>، <span class="ltr">pgvector</span>، <span class="ltr">Hangfire</span>.</li>
+      <li><span class="ltr">AyarPlus1/ShopSync</span>: دروازه محلی <span class="ltr">POS</span> آفلاین‌اول با <span class="ltr">outbox</span>، رفع تعارض، و همگام‌سازی <span class="ltr">Akaunting</span>، روی <span class="ltr">ASP.NET Core 10</span>، <span class="ltr">EF Core</span>، <span class="ltr">SQLite</span>، <span class="ltr">SignalR</span>، <span class="ltr">ZeroMQ</span> و <span class="ltr">Polly</span>. در مغازه‌ها <span class="ltr">MAUI</span> دیتابیس محلی ندارد، سرور <span class="ltr">ASP.NET</span> روی <span class="ltr">LAN</span> منبع حقیقت است، و <span class="ltr">idempotency</span> کنار <span class="ltr">Outbox</span> می‌رود. عدد مغازه نیست. ریپوی <span class="ltr">SirTypeOfficial/ShopSync</span> خالی است و پیاده‌سازی همین‌جاست.</li>
+      <li><span class="ltr">SirTypeOfficial/KaratFlow</span>: همان دفتر دوگانه 999 و <span class="ltr">KWD</span>، با خواندن نقش ۰۷. قالب از <span class="ltr">bitplatform</span> آمده. استقرار <span class="ltr">Docker</span> و دامنه <span class="ltr">karatflow.app</span> در کانفیگ هست.</li>
+      <li><span class="ltr">AyarPlus1/AyarPlus-interview</span>: تمرین مصاحبه، <span class="ltr">API</span> مخاطبین روی <span class="ltr">.NET 10</span> به‌علاوه کلاینت <span class="ltr">MAUI</span> و <span class="ltr">EF Core</span>. محصول تولید عیار نیست.</li>
+      <li><span class="ltr">AyarPlus1/gantt-reports</span>: صفحه استاتیک <span class="ltr">HTML</span> برای ساعات، پرداخت و گانت پیمانکاری، با <span class="ltr">Vazirmatn</span> و چاپ <span class="ltr">PDF</span>. اپ سرور ندارد.</li>
+      <li><span class="ltr">AyarPlus1/Laravel</span>: اپ پوش‌شده از پوشه کاری روی شاخه <span class="ltr">develop</span>. <span class="ltr">composer.json</span> در فکت‌شیت نقل نشده و نسخه <span class="ltr">Laravel</span> از روی درخت تأیید نشده.</li>
+    </ul>
+
+    <h3>سرویس مدارس، پلاک‌خوان، تاکسی | شرکت دانش‌بنیان ارتباطات پژوهان متین</h3>
+    <ul>
+      <li><span class="ltr">MatinCompany/Service_Schools_NG</span>: پلتفرم ثبت والدین و دانش‌آموز، ناوگان، تسویه و تعرفه چندشهر. پروژه‌های <span class="ltr">DomainClasses</span>، <span class="ltr">ServiceLayer</span>، <span class="ltr">DataAccess</span>، <span class="ltr">ViewModels</span> و <span class="ltr">Web</span>. جداسازی <span class="ltr">Onion-style</span>. کپی گیت‌هاب با <span class="ltr">gitea.rpnr.ir</span> هم‌خوان است.</li>
+      <li><span class="ltr">MatinCompany/Service_Schools_NG_Lite</span>: نسخه سبک‌تر همان پلتفرم. ریموت شرکت روی <span class="ltr">Gitea</span> است. <span class="ltr">csproj</span> در فکت‌شیت <span class="ltr">lite</span> نقل نشده و معماری <span class="ltr">Onion</span> از روی <span class="ltr">NG</span> به این ریپو تعمیم داده نشده.</li>
+      <li><span class="ltr">MatinCompany/SafirMehr</span>: کلاینت موبایل با <span class="ltr">flavor</span> اصفهان و شیراز. <span class="ltr">Kotlin</span> / <span class="ltr">Jetpack Compose</span>، <span class="ltr">WebView</span>، <span class="ltr">Capacitor iOS</span>، <span class="ltr">FCM</span>، <span class="ltr">GPS foreground</span>.</li>
+      <li><span class="ltr">MatinCompany/AutomaticLicensePlateRecognition</span>: خواندن پلاک ایرانی. <span class="ltr">Python 3.8+</span>، <span class="ltr">YOLO</span>، <span class="ltr">Hezar OCR</span>، <span class="ltr">FastAPI</span>. حالت پیش‌فرض داک آفلاین است.</li>
+      <li><span class="ltr">MatinCompany/OnlineTaxiMatin</span> و <span class="ltr">MatinCompany/SmartTaxi</span>: دو پروژه با هدف جدا. دومی کلاینت <span class="ltr">SmartTaxiAndroid</span> با <span class="ltr">Capacitor</span> برای اندروید و <span class="ltr">iOS</span> و کانفیگ شیراز و اصفهان دارد، به‌علاوه <span class="ltr">SmartTaxiHtmlTemplate</span> که قالب <span class="ltr">HTML</span> استاتیک است.</li>
+      <li><span class="ltr">MatinCompany/Matin-DeskExtras</span> آرشیو فایل رومیزی است (قرارداد، <span class="ltr">SQL</span>، <span class="ltr">APK</span>، <span class="ltr">KeyStore</span>). محصول جدا نیست و پیوست رزومه نیست.</li>
+    </ul>
+
+    <h3>جستجوی کالا و ابزارهای داده | باهم‌شاپ</h3>
+    <ul>
+      <li><span class="ltr">SirTypeOfficial/BahamShop</span> و کپی <span class="ltr">BahamshopCompany/BahamShop</span>: جستجوی کالای فارسی و قیمت چندفروشگاهی. فکت‌شیت شخصی استک را <span class="ltr">ASP.NET Core 6 MVC</span>، <span class="ltr">EF Core 7</span>، <span class="ltr">SQL Server</span>، <span class="ltr">Quartz</span> و <span class="ltr">Kavenegar</span> آورده، یک پروژه داخل <span class="ltr">BahamShop.sln</span>. این درخت اسنپ‌شات قبلی است و بعداً به <span class="ltr">ASP.NET Core 9</span> با <span class="ltr">Clean Architecture</span> ارتقا یافت. <span class="ltr">Clean Architecture</span> و <span class="ltr">n8n</span> در روایت شغل هستند. <span class="ltr">n8n</span> داخل این ریپو نیست.</li>
+      <li><span class="ltr">BahamshopCompany/Bahamshop.Monorepo</span>: تقسیم <span class="ltr">Admin</span>، <span class="ltr">Core</span>، <span class="ltr">Sales</span>، <span class="ltr">Vendor</span> به سبک <span class="ltr">Bit Platform</span>. این حرکت سوپراپ / مونوریپو جایگزین تولید نشد. نسخه <span class="ltr">.NET</span> در فکت‌شیت کوتاه نیامده.</li>
+      <li><span class="ltr">BahamshopCompany/BahamshopOnBit</span>: تلاش ناتمام کراس‌پلتفرم، میزبان <span class="ltr">Bit Platform</span> با <span class="ltr">BahamshopOnBit.sln</span>.</li>
+      <li><span class="ltr">BahamshopCompany/bahamshop-sync-wordpress-plugin</span>: پلاگین وردپرس <span class="ltr">PHP</span> برای همگام‌سازی داده.</li>
+      <li>ابزارهای <span class="ltr">C#</span> برای منبع‌های مقایسه قیمت ثالث: واکشی عکس، صف کالا، <span class="ltr">UpdateFaTitle</span>، <span class="ltr">ImportCityAndProvince</span>، <span class="ltr">DeleteDuplicateImages</span>، و <span class="ltr">BhamshopDBMigration</span> (مهاجرت دیتابیس؛ موتور دیتابیس در فکت‌شیت کوتاه نیامده).</li>
+      <li>ویترین استاتیک: <span class="ltr">bahamshop-html</span> و یک ویترین دوم با <span class="ltr">HTML</span>، <span class="ltr">CSS</span> و <span class="ltr">JavaScript</span>.</li>
+      <li>یک ابزار اسکراپ قیمت مارکت‌پلیس و <span class="ltr">frest</span>: در فکت‌شیت استک و معماری تأیید نشده.</li>
+    </ul>
+
+    <h3>اتوماسیون توزیع برق | پارسیا افزار</h3>
+    <ul>
+      <li><span class="ltr">AutomationBackend</span> (سازمان و کپی شخصی): <span class="ltr">API</span> فرم پویا و کارتابل روی <span class="ltr">.NET 5</span>، <span class="ltr">ASP.NET Core</span>، <span class="ltr">MediatR</span>، <span class="ltr">EF Core</span> و <span class="ltr">SQL Server. CQRS</span> با <span class="ltr">MediatR</span>.</li>
+      <li><span class="ltr">AutomationBlazor</span>: کلاینت <span class="ltr">Blazor WASM</span> به‌علاوه بک‌اند گردش کار، با <span class="ltr">Syncfusion</span>، <span class="ltr">MediatR</span> و <span class="ltr">SignalR</span>، روی <span class="ltr">.NET 5</span>.</li>
+      <li><span class="ltr">AutomationUI</span>: ادمین <span class="ltr">SPA</span> راست‌به‌چپ با <span class="ltr">Vue 2</span>، <span class="ltr">Quasar 1.x</span>، <span class="ltr">Axios</span>، <span class="ltr">Vuex</span> و <span class="ltr">Vue-i18n</span>.</li>
+      <li><span class="ltr">Automation</span>: آرشیو <span class="ltr">Automation.sln</span> با <span class="ltr">Dockerfile</span>. نسخه فریم‌ورک در فکت‌شیت کوتاه نیامده. <span class="ltr">CQRS</span> از فکت‌شیت <span class="ltr">Backend</span> است، نه از این فایل کوتاه.</li>
+      <li><span class="ltr">ParsiaAfzar.ir</span> / <span class="ltr">ParsiaAfzarCore</span>: سایت شرکت روی <span class="ltr">ASP.NET Core 5</span>، <span class="ltr">EF Core</span> و <span class="ltr">SQL Server. CMS</span> اختصاصی روایت شغل همین خانواده است.</li>
+      <li>درخت‌های استانی <span class="ltr">MVC</span> روی <span class="ltr">.NET Framework</span>، جدا از بازنویسی <span class="ltr">Microservices</span>: <span class="ltr">KhozestanSAM</span> (4.5.2)، <span class="ltr">BoushehrNAJM</span> (4.5)، <span class="ltr">Mazandaran-Najm</span> (وب 4.5 و سرویس 4.5.1)، <span class="ltr">BoushehrEgsService</span> (<span class="ltr">ASMX</span>)، <span class="ltr">Mazandaran-Supervision</span> و <span class="ltr">SupervisionBoushehr</span> (وب، کلاینت اندروید، وب‌سرویس). خوزستان در جمله شهرهای روایت‌شده خزانه نیست و فقط نام همین درخت است.</li>
+      <li><span class="ltr">BoushehrServices</span>: پروژه‌های <span class="ltr">NajmService</span> و <span class="ltr">TestNajmService. Target framework</span> در فکت‌شیت کوتاه نیامده.</li>
+      <li><span class="ltr">TricklandCms</span>: چند هاست <span class="ltr">.NET 5</span> (<span class="ltr">API</span>، <span class="ltr">WebUI</span>، <span class="ltr">Blazor</span>) با <span class="ltr">MediatR</span>، <span class="ltr">EF Core</span>، <span class="ltr">IdentityServer</span>، <span class="ltr">Syncfusion</span> و <span class="ltr">SQL Server</span>. اتصال به پارسیا فرض است، نه تحویل تأییدشده.</li>
+      <li><span class="ltr">BoushehrNAJMCore</span>، <span class="ltr">BoushehrLibrary</span>، <span class="ltr">ParsiaFiles</span> و <span class="ltr">BehnamAfrasiabi</span>: بسته زیپ، <span class="ltr">DLL</span>، سند، یا ریشه خالی. معماری محصول از روی آن‌ها ادعا نشده.</li>
+    </ul>
+
+    <h3>CRM و کلینیک | رستا</h3>
+    <ul>
+      <li><span class="ltr">RastakHolding/CRM</span>: شرکت، مخاطب، معامله، پروژه، حضور، مالی سبک، پیامک و ایمیل. <span class="ltr">ASP.NET Core 3.1</span>، <span class="ltr">EF Core 3.1</span>، <span class="ltr">SQL Server</span>، <span class="ltr">JWT</span>، <span class="ltr">Identity</span>، <span class="ltr">Swagger</span>، <span class="ltr">Kavenegar</span>، <span class="ltr">NLog</span>. فرانت <span class="ltr">Angular</span> این ریپو نیست.</li>
+      <li><span class="ltr">RastakHolding/IndustryClinic</span>: سولوشن جدا با درخت <span class="ltr">IndustryClinic</span>، یک درخت <span class="ltr">CRM</span>، و کلاینت <span class="ltr">Xamarin. C#</span>، <span class="ltr">Java</span>، <span class="ltr">JavaScript</span>، <span class="ltr">HTML</span>، <span class="ltr">CSS</span>.</li>
+    </ul>
+
+    <h3>کار مستقل و پروژه‌های شخصی</h3>
+    <ul>
+      <li><span class="ltr">SirTypeOfficial/trading-bot</span>: بک‌تست <span class="ltr">Streamlit</span> با تقاطع میانگین متحرک به‌علاوه <span class="ltr">LSTM</span> و اندازه <span class="ltr">Grid/Martingale</span>، روی <span class="ltr">Python</span>، <span class="ltr">Keras/TensorFlow</span> و <span class="ltr">Matplotlib. MQL</span> در این ریپو نیست. نگاشت بازه دی ۱۴۰۱ تا آذر ۱۴۰۳ است.</li>
+      <li><span class="ltr">SirTypeOfficial/VueCA</span> (و کپی زیر سازمان پارسیا): امتحان شخصی <span class="ltr">Vue</span> با <span class="ltr">Clean Architecture</span>، کامیت ۶ تا ۲۲ فوریه ۲۰۲۱. <span class="ltr">.NET 5</span>، <span class="ltr">OIDC</span>، <span class="ltr">SQL Server</span>، لایه‌های <span class="ltr">Domain</span> / <span class="ltr">Application</span> / <span class="ltr">Infrastructure</span> / <span class="ltr">WebUI</span>. شغل پارسیا نیست و شغل رستا نیست.</li>
+      <li><span class="ltr">SirTypeOfficial/LinguaStream</span>: ترجمه گفتار فارسی به انگلیسی با <span class="ltr">XTTS-v2</span>، کامیت ۸ اکتبر ۲۰۲۵. <span class="ltr">Python</span>، <span class="ltr">Whisper</span>، <span class="ltr">Hugging Face</span>، <span class="ltr">Coqui TTS</span>، <span class="ltr">Streamlit</span>. داخل بازه کار مستقل تا آذر ۱۴۰۳ نیست.</li>
+      <li><span class="ltr">SirTypeOfficial/android-to-windows-streaming</span>: دوربین و میکروفون اندروید به‌جای وب‌کم ویندوز، ۲۷ اکتبر تا ۱ نوامبر ۲۰۲۵. اپ <span class="ltr">Gradle</span>، گیرنده <span class="ltr">Python</span>، دوربین مجازی <span class="ltr">AVStream</span> (<span class="ltr">vcam.inf</span>) و میکروفون مجازی <span class="ltr">PortCls</span> (<span class="ltr">vmic.inf</span>).</li>
+      <li><span class="ltr">SirTypeOfficial/WireguardConfigToQrcode</span>: اسکریپت <span class="ltr">Python</span> برای تبدیل کانفیگ <span class="ltr">WireGuard</span> به <span class="ltr">QR</span>، <span class="ltr">JSON</span> سازگار با <span class="ltr">sing-box/Throne</span>، و <span class="ltr">URI</span>. کامیت ۲۹ سپتامبر ۲۰۲۵.</li>
+    </ul>
+
+    <h3>قالب، نمونه و آرشیو شخصی</h3>
+    <p>این‌ها کارفرما نیستند و به بازه شغل سنجاق نشده‌اند، مگر جایی که تاریخ کامیت در فکت‌شیت آمده.</p>
+    <ul>
+      <li>فروشگاه و <span class="ltr">CMS</span> با شاهد درخت: <span class="ltr">BookShop</span> (<span class="ltr">ASP.NET Core 2.1 MVC</span>، <span class="ltr">EF Core</span>، <span class="ltr">SQL Server</span>)، <span class="ltr">NewsWebsite</span> (<span class="ltr">ASP.NET Core 3.1</span>)، <span class="ltr">SportShop</span> (<span class="ltr">.NET 10</span>، <span class="ltr">MVC</span>، <span class="ltr">Identity</span>، <span class="ltr">Razor</span>)، <span class="ltr">WPro</span> (<span class="ltr">.NET 5 MVC</span>)، <span class="ltr">ETHMetamaskConnect</span> (صفحه <span class="ltr">ASP.NET</span> برای <span class="ltr">MetaMask</span>)، <span class="ltr">Ably01</span> (<span class="ltr">ASP.NET Core 7</span>، <span class="ltr">Razor Pages</span>، <span class="ltr">EF Core</span>، <span class="ltr">SQL Server</span>؛ اسکلت عملیات خودرو).</li>
+      <li>قالب معماری: <span class="ltr">BaseMicroserviceBlazor</span> (<span class="ltr">.NET 6</span>، <span class="ltr">Blazor WASM</span>، <span class="ltr">IdentityServer</span>، <span class="ltr">Clean Architecture</span>)، <span class="ltr">BaseOnBit</span> (<span class="ltr">.NET 9</span>، <span class="ltr">Bit Platform v9.7.2</span>)، <span class="ltr">Custify</span> (<span class="ltr">.NET 9</span>، <span class="ltr">Blazor WASM/MAUI</span>)، <span class="ltr">GPHOnBit</span>، <span class="ltr">PayHubOnBit</span> (<span class="ltr">.NET 9</span>، اسکلت، محصول پرداخت <span class="ltr">shipped</span> نیست)، <span class="ltr">DariushT_DDD_Eshop</span> (<span class="ltr">.NET 5</span>، <span class="ltr">MediatR</span>، <span class="ltr">DDD</span>)، <span class="ltr">DT_CMS</span> و <span class="ltr">Template_CMS</span> (<span class="ltr">.NET 7</span>، <span class="ltr">Clean Architecture</span>)، <span class="ltr">Template.CMS.OneLayer</span> (<span class="ltr">.NET 7</span>، تک‌لایه)، <span class="ltr">MBBase</span> (<span class="ltr">.NET 6</span>)، <span class="ltr">MyEShop</span> (<span class="ltr">.NET 7</span>، <span class="ltr">Duende IdentityServer</span>)، <span class="ltr">StarterSolutionCleanCode</span> (<span class="ltr">.NET 7</span>، <span class="ltr">DDD</span>، <span class="ltr">Blazor/MAUI</span>)، <span class="ltr">rayankar-test</span> (تکلیف <span class="ltr">CRUD</span> روی <span class="ltr">.NET 8</span> / <span class="ltr">Blazor</span> با <span class="ltr">Gherkin</span>)، <span class="ltr">MV.Common</span> (کتابخانه <span class="ltr">.NET 8</span>).</li>
+      <li>طرح، نه محصول تمام‌شده: <span class="ltr">DynamicECOMMERCE</span> (هدف <span class="ltr">.NET 10</span>، <span class="ltr">Razor Pages</span>، <span class="ltr">PostgreSQL 16</span>)، <span class="ltr">DynamicShop</span> (طرح بازنویسی از ووکامرس؛ کد <span class="ltr">shipped</span> تأیید نشده)، <span class="ltr">EcoCivitas</span>، <span class="ltr">PulseAIWorld</span>، <span class="ltr">SNT</span> (سند).</li>
+      <li><span class="ltr">ClientKeeper</span>: <span class="ltr">UI</span> روی <span class="ltr">Next.js</span>، <span class="ltr">React</span>، <span class="ltr">Firebase</span>، <span class="ltr">next-intl</span> و <span class="ltr">Genkit</span>. در پاس ۲۲ سپتامبر ۲۰۲۶ مسیر <span class="ltr">OTP</span> و <span class="ltr">Firestore</span> و <span class="ltr">Genkit</span> عمدتاً وصل نبود.</li>
+      <li><span class="ltr">react-learn</span>: یادداشت مصاحبه و اپ تمرین <span class="ltr">RTL</span> با <span class="ltr">React</span> و <span class="ltr">Vite. SpotReverse</span>: تحقیق <span class="ltr">WinForms</span> به‌علاوه دامپ <span class="ltr">C. vuexy-full-version-react</span>: قالب <span class="ltr">Vuexy 6.4.0. Resume</span>: همین خزانه. <span class="ltr">SirTypeOfficial</span>: <span class="ltr">README</span> پروفایل.</li>
+      <li>آرشیو <span class="ltr">Azure</span> روی حساب شخصی، تاریخ کامیت اصلی حفظ شده: <span class="ltr">Base</span> (<span class="ltr">netcoreapp3.1</span>، <span class="ltr">EF Core</span>، <span class="ltr">Identity</span>، <span class="ltr">JWT</span>، <span class="ltr">Syncfusion</span>، <span class="ltr">NLog</span>)، <span class="ltr">VueCore</span> (هاست لایه‌ای <span class="ltr">ASP.NET Core 3.1</span>، نه اپ <span class="ltr">Vue CLI</span>)، <span class="ltr">LSS</span> و <span class="ltr">LMSocial</span> و <span class="ltr">StateApp</span> و <span class="ltr">PersianAppkitShop</span> (<span class="ltr">Clean Architecture</span>)، <span class="ltr">LMSocial-sirtype</span> (درخت جدا، نوامبر ۲۰۲۰)، <span class="ltr">Personal</span> (سایت لایه‌ای 3.1)، <span class="ltr">BaseNet5Blazor</span>، <span class="ltr">Blazor</span>، <span class="ltr">AppkitVuexy</span>، <span class="ltr">DecodeJsSirType</span> (<span class="ltr">WinForms</span>، <span class="ltr">.NET Framework 4.7.2</span>)، <span class="ltr">HtmlTranslator</span> (<span class="ltr">WinForms</span>، <span class="ltr">netcoreapp3.1</span>، <span class="ltr">HtmlAgilityPack</span>)، <span class="ltr">SamDynamic</span> (دو کلاس‌لایبرری <span class="ltr">.NET 5</span>)، <span class="ltr">AngularShopCleanArchitecture</span> (نمونه فروشگاه؛ جزئیات لایه در فکت‌شیت همان ریپو).</li>
+    </ul>
+    <p>نیکان ریپویی در این حساب‌ها ندارد. فورک‌های bitplatform، DntSite و Auto_job_applier_linkedIn کامیت با ایمیل mv6468@gmail.com نداشتند و کار shipشده نیستند. ریپوهای DevimanAI برای این رزومه نیستند.</p>
+  </section>
+
+  <section>
+    <h2>مدارک</h2>
     <ul class="certs">
-      <li>دوره حرفه‌ای <span class="ltr">MVC</span> و <span class="ltr">ASP.NET Core</span> | دانشگاه آزاد اسلامی | بهمن ۱۳۹۸ / ژانویه ۲۰۲۰</li>
+      <li>دوره حرفه‌ای <span class="ltr">MVC</span> و <span class="ltr">ASP.NET Core</span> | دانشگاه آزاد اسلامی | بهمن ۱۳۹۸ / ژانویه ۲۰۲۰ (دو <span class="ltr">PDF</span>: <span class="ltr">ASP.NET MVC</span> و <span class="ltr">ASP.NET Core 2</span>)</li>
       <li>توسعه اپلیکیشن موبایل با <span class="ltr">Xamarin.Android</span> | سازمان مدیریت صنعتی واحد جنوب | بهمن ۱۳۹۵ / ژانویه ۲۰۱۷</li>
-      <li>توسعه وب با <span class="ltr">PHP</span> و فریم‌ورک <span class="ltr">CodeIgniter</span> | سازمان مدیریت صنعتی واحد جنوب | ۱۳۹۳ / ۲۰۱۴</li>
+      <li>توسعه وب با <span class="ltr">PHP</span> و فریم‌ورک <span class="ltr">CodeIgniter</span> | سازمان مدیریت صنعتی واحد جنوب | ۱۳۹۳ / ۲۰۱۴ (<span class="ltr">PDF</span> در <span class="ltr">assets</span> نیست)</li>
       <li>برنامه‌نویسی شی‌گرا (<span class="ltr">OOP</span>) و مبانی <span class="ltr">C#</span> | سازمان مدیریت صنعتی واحد جنوب | شهریور ۱۳۹۲ / اوت ۲۰۱۳</li>
     </ul>
+    <p>PDFهای Photoshop (شهریور ۱۳۹۸)، 3ds Max Animation (آبان ۱۳۹۲) و WordPress (آذر ۱۳۹۵) از همان مؤسسه روی دیسک هستند. خارج از سه‌گانه .NET، هوش کاربردی و اتوماسیون‌اند و مهارت پروفایل نیستند.</p>
   </section>
 
   <section>
-    <h2>تحصیلات و پیش‌زمینه</h2>
+    <h2>تحصیلات</h2>
     <ul class="edu">
-      <li>دوره حرفه‌ای <span class="ltr">MVC</span> و <span class="ltr">ASP.NET Core</span>، دانشگاه آزاد اسلامی | ۱۳۹۸ / گواهینامه‌ها بهمن ۱۳۹۸</li>
-      <li>برنامه‌نویسی شی‌گرا و مبانی <span class="ltr">C#</span>، سازمان مدیریت صنعتی واحد جنوب | ۱۳۹۲</li>
+      <li>دوره حرفه‌ای <span class="ltr">MVC</span> و <span class="ltr">ASP.NET Core</span>، دانشگاه آزاد اسلامی | ۱۳۹۸، گواهینامه بهمن ۱۳۹۸ (داخل بازه رستا، بعد از خروج از نیکان)</li>
+      <li>توسعه موبایل با <span class="ltr">Xamarin.Android</span>، سازمان مدیریت صنعتی واحد جنوب | ۱۳۹۵، گواهینامه بهمن ۱۳۹۵</li>
       <li>توسعه وب با <span class="ltr">PHP</span> و <span class="ltr">CodeIgniter</span>، سازمان مدیریت صنعتی واحد جنوب | ۱۳۹۳</li>
-      <li>توسعه موبایل با <span class="ltr">Xamarin.Android</span>، سازمان مدیریت صنعتی واحد جنوب | ۱۳۹۵</li>
-      <li><span class="ltr">self-study</span> پیش از اولین شغل تولید: دوره بیش از ۱۲۰ ساعته <span class="ltr">ASP.NET Core</span> آرزو ابراهیمی و کتاب‌های <span class="ltr">ASP.NET MVC 5</span></li>
-      <li>دو سال خدمت سربازی؛ اتمام خدمت پیش از ورود به نیکان در تیر ۱۳۹۷</li>
+      <li>برنامه‌نویسی شی‌گرا و مبانی <span class="ltr">C#</span>، سازمان مدیریت صنعتی واحد جنوب | ۱۳۹۲، گواهینامه شهریور ۱۳۹۲</li>
+      <li><span class="ltr">self-study</span> پیش از نیکان: دوره بیش از ۱۲۰ ساعته <span class="ltr">ASP.NET Core</span> آرزو ابراهیمی، و کتاب‌های <span class="ltr">ASP.NET MVC 5</span></li>
+      <li>دو سال خدمت سربازی، تمام‌شده پیش از ورود به نیکان در تیر ۱۳۹۷</li>
     </ul>
   </section>
 </body>
