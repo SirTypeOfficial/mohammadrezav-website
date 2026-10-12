@@ -3,251 +3,568 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mohammad Reza Vazifeh - Resume</title>
-  <link rel="canonical" href="https://mohammadrezav.ir/downloads/master-resume-en.html">
-  <meta name="robots" content="index, follow">
+  <title>Mohammad Reza Vazifeh — Master Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
-
     :root {
-      --ink: #111111;
-      --muted: #333333;
-      --rule: #111111;
+      --ink: #161616;
+      --muted: #3a3a3a;
+      --header: #17191d;
+      --header-ink: #f4f1eb;
+      --header-muted: #c9c3b8;
+      --gold: #c6a36a;
+      --frame: #cfc6b8;
+      --job-frame: #e3d9cc;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    @page {
-      size: A4;
-      margin: 12mm 15mm;
-    }
+    @page { size: A4; margin: 11mm 12mm; }
 
     html, body {
       background: #fff;
       color: var(--ink);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
     }
 
     body {
       font-family: Inter, Arial, "Helvetica Neue", Helvetica, sans-serif;
-      font-size: 10.5pt;
-      line-height: 1.38;
+      font-size: 9.4pt;
+      line-height: 1.46;
       font-weight: 400;
-      max-width: 178mm;
+      max-width: 186mm;
       margin: 0 auto;
-      padding: 12mm 0;
-      -webkit-font-smoothing: antialiased;
+      padding: 0;
     }
 
-    a {
-      color: var(--ink);
-      text-decoration: none;
+    a { color: inherit; text-decoration: none; }
+
+    .ltr {
+      direction: ltr;
+      unicode-bidi: isolate;
     }
 
-    header { margin-bottom: 10pt; }
+    .contact .ltr {
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+      background: var(--header);
+      color: var(--header-ink);
+      padding: 8px 11px 7px;
+      margin-bottom: 6pt;
+      border: 1px solid var(--header);
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .who { flex: 1; min-width: 0; }
 
     h1 {
-      font-size: 18pt;
+      font-size: 16.5pt;
       font-weight: 700;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.01em;
       line-height: 1.15;
     }
 
     .title {
-      font-size: 11pt;
+      font-size: 10.2pt;
       font-weight: 600;
-      margin-top: 2pt;
-      color: var(--muted);
+      margin-top: 3pt;
+      color: var(--gold);
+      line-height: 1.35;
     }
 
     .contact {
-      font-size: 9pt;
+      font-size: 8.3pt;
       margin-top: 4pt;
       line-height: 1.45;
-      color: var(--muted);
+      color: var(--header-muted);
+    }
+
+    .photo {
+      width: 24mm;
+      height: 30mm;
+      object-fit: cover;
+      object-position: center 12%;
+      flex: 0 0 auto;
+      border: 1px solid var(--gold);
+    }
+
+    section {
+      border: 1px solid var(--frame);
+      padding: 4pt 7pt 3pt;
+      margin: 0 0 5pt;
     }
 
     h2 {
-      font-size: 9.5pt;
+      font-size: 10pt;
       font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      border-bottom: 1px solid var(--rule);
-      padding-bottom: 2pt;
-      margin: 11pt 0 6pt;
+      letter-spacing: 0;
+      text-transform: none;
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 1.5pt;
+      margin: 0 0 3pt;
     }
 
-    p { margin: 0 0 6pt; }
-
-    .competencies { font-size: 10pt; }
-    .competencies p { margin-bottom: 3pt; }
-
-    .job { margin-bottom: 9pt; }
-
-    .job-head {
-      display: block;
+    h3 {
+      font-size: 9.4pt;
       font-weight: 700;
-      font-size: 10.5pt;
+      margin: 4pt 0 2pt;
     }
 
-    .job-meta {
+    p { margin: 0 0 3pt; }
+    p:last-child { margin-bottom: 0; }
+
+    .competencies p { margin-bottom: 1.5pt; font-size: 9.1pt; }
+
+    .job-columns,
+    .job {
+      display: grid;
+      grid-template-columns: 34mm minmax(0, 1fr);
+      column-gap: 0;
+    }
+
+    .job-columns {
+      border: 1px solid var(--ink);
+      border-bottom: 0;
+      background: #f7f4ee;
+      font-weight: 700;
+      font-size: 8pt;
+    }
+
+    .job-columns span { padding: 2pt 5pt; }
+
+    .job-columns span + span { border-inline-start: 1px solid var(--ink); }
+    .job-columns { break-after: avoid; page-break-after: avoid; }
+
+    .job {
+      border: 1px solid var(--ink);
+      border-inline-start: 2px solid var(--gold);
+      padding: 0;
+      margin: 0 0 5pt;
+    }
+
+    .job:last-child { margin-bottom: 0; }
+
+    .employer {
+      border-inline-end: 1px solid var(--ink);
+      padding: 4pt 4pt 3pt;
+      text-align: center;
+    }
+
+    .description {
+      padding: 3pt 6pt 3pt;
+      min-width: 0;
+    }
+
+    .logo {
       display: block;
-      font-size: 9pt;
+      width: auto;
+      max-width: 30mm;
+      max-height: 14mm;
+      height: auto;
+      margin: 0 auto 2pt;
+      object-fit: contain;
+    }
+
+    .employer p { margin: 0; }
+
+    .employer-name {
+      font-weight: 700;
+      font-size: 8pt;
+      line-height: 1.3;
+    }
+
+    .employer-type,
+    .dates,
+    .place {
+      font-size: 7.6pt;
       color: var(--muted);
-      margin: 1pt 0 3pt;
+      font-weight: 400;
+      line-height: 1.3;
+      margin-top: 1pt;
+    }
+
+    .time-label {
+      font-weight: 700;
+      font-size: 7.6pt;
+      margin-top: 3pt;
+    }
+
+    .role,
+    .project {
+      font-size: 9pt;
+      line-height: 1.35;
+      margin: 0;
+    }
+
+    .activity {
+      display: block;
+      max-width: 100%;
+      max-height: 28mm;
+      width: auto;
+      object-fit: contain;
+      margin: 2pt 0 1pt;
+    }
+
+    .tools {
+      font-size: 8pt;
+      line-height: 1.35;
+      margin-top: 2pt;
+    }
+
+    li .ltr,
+    .role .ltr,
+    .project .ltr,
+    .employer .ltr {
+      white-space: nowrap;
+    }
+
+    html[dir="rtl"] .tools .ltr {
+      display: block;
+      direction: ltr;
+      text-align: right;
+      white-space: normal;
     }
 
     ul {
-      margin: 0 0 0 12pt;
+      margin: 0;
       padding: 0;
+      padding-inline-start: 1.15em;
+      list-style-position: outside;
     }
 
-    li { margin-bottom: 2.5pt; }
-
-    .certs li, .edu li { margin-bottom: 2pt; }
+    li { margin-bottom: 2pt; }
+    .certs li, .edu li { margin-bottom: 1.2pt; }
 
     @media print {
-      @page {
-        size: A4;
-        margin: 12mm 15mm;
-      }
       html, body { background: #fff; }
-      body {
-        padding: 0;
-        max-width: none;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
-      a { text-decoration: none; color: var(--ink); }
-      h2 { break-after: avoid; }
-      .job { break-inside: avoid; }
+      body { padding: 0; max-width: none; }
+      a { text-decoration: none; }
+      header, h2, h3, .role, .project, .employer { break-after: avoid; }
+      .employer { break-inside: avoid; }
+      header { break-inside: avoid; }
+      section { break-inside: auto; }
+      .job { break-inside: avoid; page-break-inside: avoid; }
+      li { break-inside: avoid; }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Mohammad Reza Vazifeh</h1>
-    <p class="title">Full-Stack .NET Developer &amp; Software Architect</p>
-    <p class="contact">
-      Shiraz, Iran
-      · <a href="mailto:mv6468@gmail.com">mv6468@gmail.com</a>
-      · +98 933 229 7757
-      · <a href="https://mohammadrezav.ir">mohammadrezav.ir</a>
-      · <a href="https://www.linkedin.com/in/sirtype/">linkedin.com/in/sirtype</a>
-      · <a href="https://github.com/SirTypeOfficial">github.com/SirTypeOfficial</a>
-    </p>
+    <div class="who">
+      <h1>Mohammad Reza Vazifeh</h1>
+      <p class="title">Full-Stack .NET Developer &amp; Software Architect</p>
+      <p class="contact">
+        Shiraz, Iran
+        · <a class="ltr" href="tel:+989332297757">+98 933 229 7757</a>
+        · <a class="ltr" href="mailto:mv6468@gmail.com">mv6468@gmail.com</a>
+      </p>
+      <p class="contact">
+        <a class="ltr" href="https://mohammadrezav.ir">mohammadrezav.ir</a>
+        · <a class="ltr" href="https://www.linkedin.com/in/sirtype/">linkedin.com/in/sirtype</a>
+        · <a class="ltr" href="https://github.com/SirTypeOfficial">github.com/SirTypeOfficial</a>
+      </p>
+    </div>
+    <img class="photo" src="../assets/images/profile.jpg" alt="Mohammad Reza Vazifeh">
   </header>
 
   <section>
-    <h2>Executive Summary</h2>
-    <p>Software developer with more than 8 years of commercial production in the .NET ecosystem, focused on distributed systems, Clean Architecture, and process automation. The .NET path starts with OOP and C# in 2013. Day-to-day work is .NET 9/10, DDD, CQRS, and Microservices. Applied AI and computer vision in production through ALPR on Python and FastAPI, plus prompt and agent work in the development loop. Automation through n8n pipelines, Redis, SignalR, RabbitMQ, and MQL5 trading systems. In 2025-2026 that meant official full-time work on a school-transport platform with more than 200,000 users in some cities, plus a part-time remote MAUI gold ERP for the Kuwait market at Ayar Plus, outside Pazhoohan working hours.</p>
+    <h2>Professional Summary</h2>
+    <p>Full-Stack .NET Developer and Software Architect, in commercial production since July 2018. Day-to-day systems sit on .NET 10, Clean Architecture, SQL Server, and FastAPI across municipal transport, gold ERP, and product search. Closed school-transport settlement for 200k+ users in some cities.</p>
   </section>
 
   <section>
-    <h2>Core Technical Skills</h2>
+    <h2>Core Competencies</h2>
     <div class="competencies">
-      <p><strong>Architecture:</strong> Microservices, Clean Architecture, Onion Architecture, DDD, CQRS, Event-Driven</p>
-      <p><strong>Languages &amp; Frameworks:</strong> .NET 9/10, C#, ASP.NET Core, Blazor Hybrid, .NET MAUI, XAML, Python, FastAPI, Kotlin</p>
-      <p><strong>Data / Messaging / Automation:</strong> PostgreSQL, Redis, RabbitMQ, SignalR, n8n, MQL5, Docker, CI/CD</p>
-      <p><strong>Clients &amp; supporting:</strong> Vue.js, Angular, SQL Server, Bit Platform, ImageKit, PHP (client integration), Figma (side tool)</p>
+      <p><strong>Core production:</strong> .NET 9/10 | ASP.NET Core | C# | Clean Architecture | Onion Architecture | DDD | CQRS | Microservices | SQL Server | EF Core | RabbitMQ</p>
+      <p><strong>Clients and mobile:</strong> Blazor | Blazor Hybrid | .NET MAUI | Bit Platform | XAML | Kotlin | Jetpack Compose | Capacitor | WebView | Xamarin.Android | Android</p>
+      <p><strong>Data, messaging, automation:</strong> PostgreSQL | Redis | SignalR | pgvector | Hangfire | n8n | MQL4 | MQL5 | Docker | Blockchain | smart contracts</p>
+      <p><strong>Applied intelligence:</strong> Python | FastAPI | ALPR | YOLO | Persian OCR | OpenCV | Hezar</p>
+      <p><strong>Web and delivery:</strong> Vue.js | PHP | ASP.NET MVC | Razor Pages | CI/CD | Git | IIS | Serilog</p>
+      <p><strong>Explored, not profile skills:</strong> Kubernetes (personal test only; not the production orchestrator). Pine Script (practice on the trading path). Digital Marketing, MBA, and DBA were awareness and practice on the independent stretch. DBA practice covered initial config, maintenance jobs, full and log backups, and application-level restore. Always On and clustering were not set up in production.</p>
     </div>
   </section>
 
   <section>
-    <h2>Professional Experience</h2>
+    <h2>Key Technical Experience</h2>
 
+    <div class="job-columns">
+      <span>Employer</span>
+      <span>Description</span>
+    </div>
     <article class="job">
-      <span class="job-head">Part-time / Remote Technical Contractor | Ayar Plus</span>
-      <span class="job-meta">Remote (Iran); Kuwait market | Sep 2025 - Sep 2026</span>
-      <ul>
-        <li>Engineered the gold ERP frontend on .NET MAUI and .NET 10, covering gold inventory, gold math, and accounting on a multilingual XAML client talking to a PHP backend.</li>
-        <li>Architected online and offline invoicing with queued requests until the app came online and Windows-to-Android discovery on the LAN.</li>
-        <li>Streamlined store releases so Android and iOS published automatically to Google Play and the App Store through CI/CD without interrupting live customers.</li>
-        <li>Engineered Civil ID scanning into the Kuwait gold-shop flow, storing card photos on ImageKit for the Android app, by connecting shop card readers.</li>
-        <li>Started a Bit Platform rewrite, migrating legacy data and adding PDF print for receipts and invoices.</li>
-      </ul>
+      <div class="employer">
+        <img class="logo" src="media/logos/ayar-plus.png" alt="Ayar Plus" onerror="this.remove()">
+        <p class="employer-name">Ayar Plus</p>
+        <p class="employer-type">Part-time / Remote Contractor, outside Pazhoohan hours</p>
+        <p class="time-label">Time period</p>
+        <p class="dates">Sep 2025 – Sep 2026</p>
+        <p class="place">Remote from Iran; Kuwait market</p>
+      </div>
+      <div class="description">
+        <p class="role"><strong>Role:</strong> Part-time / Remote Technical Contractor</p>
+        <p class="project"><strong>Project:</strong> Kuwait gold ERP</p>
+        <ul>
+          <li>Built the gold ERP client on .NET MAUI and .NET 10 so inventory, gold calculations, and accounting ran on a multilingual XAML screen against PHP.</li>
+          <li>Kept invoices issuing when the shop network was down, with a local queue, send status, and last-write or server-version conflict handling. API v1/v2 let older clients, and an offline invoice, keep posting after a server update, and the Windows client discovered Android clients on the LAN.</li>
+          <li>Shipped ShopSync into the shops so invoices kept issuing when the WAN was down. The MAUI client keeps no local database. An ASP.NET server on the LAN is the source of truth, and an outbox with idempotency keys syncs to Akaunting. Sold commercially to multiple shops. No license count.</li>
+          <li>Published Android and iOS builds through CI/CD and Azure Pipelines so Google Play and App Store releases continued for live customers.</li>
+          <li>Connected Kuwait shop card readers for Civil ID and stored the card photos on ImageKit for the Android app. A separate shop PC sat on the reader, and I debugged that PC remotely.</li>
+          <li>Ran the remote weekly sprint, with daily and weekly meetings, across Mashhad, Qom, and the Product Owner for part of the contract.</li>
+          <li>Opened the full cross-platform Bit Platform rewrite with a legacy data migration into the new system and PDF print for receipts and invoices. The rewrite moved to Blazor Hybrid on ASP.NET because the PHP backend was slow to integrate. The KaratFlow migration moved Akaunting (Laravel/PHP) into a redesigned schema. The hard part was KWD rounding and decimal precision.</li>
+          <li>KaratFlow, in this same contract, keeps a dual ledger of 999 gold weight and KWD on invoices, purchases, and receipts, and PACI reads Civil ID on Windows. It is a parallel adjacent project. A related sync approach was reused there. The client design is not ShopSync.</li>
+          <li>Tried the BahamShop RAG pilot on Ayar Plus product and document questions. Answers stayed in a review table and off the invoice path.</li>
+        </ul>
+        <img class="activity" src="media/activities/ayar-plus.png" alt="" onerror="this.remove()">
+        <p class="tools"><strong>Tools &amp; Technologies:</strong> .NET 10, .NET MAUI, XAML, ShopSync, Bit Platform, Blazor, ASP.NET Core, PHP, Akaunting, PostgreSQL, Redis, SignalR, Hangfire, QuestPDF, EF Core, CI/CD, Azure Pipelines, ImageKit</p>
+      </div>
     </article>
 
     <article class="job">
-      <span class="job-head">Full-time Full-Stack Developer (On-site/Hybrid) | Ertebatat Pazhoohan Matin</span>
-      <span class="job-meta">Shiraz, Iran | Jun 2025 - Jul 2026</span>
-      <ul>
-        <li>Optimized the school-transport platform on C# and Onion Architecture (features, reports, faster queries) for municipalities in Shiraz, Isfahan, and Qazvin.</li>
-        <li>Kept multi-role accounting and the payment gateway running for more than 200,000 users in some cities, with settlement among fleets, services, drivers, students, and parents.</li>
-        <li>Shipped Safir Mehr in Kotlin, WebView, and Capacitor iOS, with Isfahan and Shiraz flavors, so customers had a fleet app from the start of the tenure.</li>
-        <li>Engineered ALPR into the inspector flow, returning plate text from a photo, with Python and FastAPI.</li>
-        <li>Shipped OnlineTaxiMatin as a separate .NET 10 demo (OTP, map, fare, request, accept or reject) on PostgreSQL, EF Core, SignalR, and Leaflet. Kept SmartTaxi separate: Domain, Application, Infrastructure, an Android client, and Docker.</li>
-      </ul>
+      <div class="employer">
+        <img class="logo" src="media/logos/ertebatat-pazhouhan.png" alt="Ertebatat Pazhoohan Matin (Knowledge-Based)" onerror="this.remove()">
+        <p class="employer-name">Ertebatat Pazhoohan Matin (Knowledge-Based)</p>
+        <p class="employer-type">Full-time / On-site-Hybrid, primary employment</p>
+        <p class="time-label">Time period</p>
+        <p class="dates">Jun 2025 – Jul 2026</p>
+        <p class="place">Shiraz, Iran</p>
+      </div>
+      <div class="description">
+        <p class="role"><strong>Role:</strong> Full-time Full-Stack Developer (On-site/Hybrid)</p>
+        <p class="project"><strong>Project:</strong> Municipal school transport</p>
+        <ul>
+          <li>Cleared peak-hour SQL Server locks on movement reports by reading execution plans and adding non-clustered indexes on date and the hot filters. Serilog wrote structured logs on IIS.</li>
+          <li>Shipped Safir Mehr for drivers, students, and parents on the Isfahan and Shiraz flavors, using Kotlin and Jetpack Compose, a native shell with WebView, and Capacitor on iOS. Parents saw driver status from the driver's location, and FCM sent student-readiness alerts from the driver's area.</li>
+          <li>Spent the first month on the production system across more than 80 tables in different process areas. Most of the professional documentation was missing on arrival.</li>
+          <li>Worked smart service assignment in the one Onion solution that covered the cities. Student routes and services drove the school and driver assignment, with contract management and cost calculation in the same domain.</li>
+          <li>Made the dashboard faster by optimizing its queries and upgrading the project's .NET version. In-project tests compared fetch speed across data volumes and modes.</li>
+          <li>Kept settlement correct across fleets, services, drivers, students, and parents for more than 200,000 users in some cities, through token, verify, and a ledger row. The platform served the municipalities of Shiraz, Isfahan, and Qazvin.</li>
+          <li>Wired ALPR into the inspector flow so a movement row was written only after fleet validation, on FastAPI, a YOLO-family detector, Persian OCR, and OpenCV. A low confidence score, or a timeout of about 3 seconds, fell back to manual entry. The service stayed off the main API.</li>
+          <li>Shipped the OnlineTaxiMatin demo, covering OTP, map, fare, trip request, and driver accept or reject, on .NET 10, Razor Pages, Blazor Server, PostgreSQL, and SignalR.</li>
+          <li>Kept SmartTaxi as its own solution, with a Domain / Application / Infrastructure split, an Android client, and Docker.</li>
+        </ul>
+        <img class="activity" src="media/activities/ertebatat-pazhouhan.png" alt="" onerror="this.remove()">
+        <p class="tools"><strong>Tools &amp; Technologies:</strong> C#, ASP.NET Core, Onion Architecture, SQL Server, Serilog, IIS, Kotlin, Jetpack Compose, Capacitor, FCM, FastAPI, Python, OpenCV, .NET 10, PostgreSQL, SignalR</p>
+      </div>
     </article>
 
     <article class="job">
-      <span class="job-head">Technical Lead &amp; Backend Automation Architect | BahamShop</span>
-      <span class="job-meta">Shiraz, Iran | Dec 2024 - Jun 2025</span>
-      <ul>
-        <li>Architected the search backend on ASP.NET Core 9 with Clean Architecture and caching, taking the site from zero revenue to first-month click-SEO income.</li>
-        <li>Engineered n8n pipelines that generated SEO-ready copy per product tag and category; the SEO team edited and inserted that copy, which also raised product indexing speed.</li>
-        <li>Optimized search response time on that same stack through Clean Architecture boundaries and caching.</li>
-      </ul>
+      <div class="employer">
+        <img class="logo" src="media/logos/baham-shop.png" alt="BahamShop" onerror="this.remove()">
+        <p class="employer-name">BahamShop</p>
+        
+        <p class="time-label">Time period</p>
+        <p class="dates">Dec 2024 – Jun 2025</p>
+        <p class="place">Shiraz, Iran</p>
+      </div>
+      <div class="description">
+        <p class="role"><strong>Role:</strong> Technical Lead &amp; Backend Automation Architect</p>
+        <p class="project"><strong>Project:</strong> Product search</p>
+        <ul>
+          <li>Took the product-search site from no revenue to first-month income on click SEO, on ASP.NET Core 9 with Clean Architecture and caching. A scraper loaded the listings. Onboarded the first major marketplace seller and linked shared products. The site links out to shops, earns per click, and already had strong SEO.</li>
+          <li>Ran n8n so a language model drafted SEO tags, copy, and summaries, and the SEO team edited and approved them before anything was published. That path also raised product indexing speed. The same pipeline collected keywords and product info, drafted with H1/H2/H3, humanized the text, and waited for site-admin approval. It produced pages for about 9,000 tags and categories much faster.</li>
+          <li>Kept production as one project in one solution and added services there. An earlier repo snapshot is ASP.NET Core 6 MVC (EF Core 7, SQL Server), later upgraded to ASP.NET Core 9. A monorepo / super-app split did not replace it. A script rebuilt existing images smaller so pages loaded faster. Shared assets and the home page's general queries moved into cache.</li>
+          <li>Kept scrapers for third-party price-comparison sources current through timeouts, blocking, and frequent HTML changes, with strict deduplication on products, images, and comparison tags.</li>
+          <li>Piloted RAG for product and document questions on FastAPI, pgvector, and OpenAI embeddings, with SQL filters on category and stock. Answers were stored for review and stayed off the main site.</li>
+        </ul>
+        <img class="activity" src="media/activities/baham-shop.png" alt="" onerror="this.remove()">
+        <p class="tools"><strong>Tools &amp; Technologies:</strong> ASP.NET Core 9, C#, Clean Architecture, n8n, FastAPI, PostgreSQL, pgvector, EF Core, SQL Server</p>
+      </div>
     </article>
 
     <article class="job">
-      <span class="job-head">Independent Engineer; Trading Systems, Automation, and Architecture R&amp;D | Independent</span>
-      <span class="job-meta">Shiraz, Iran | Jan 2023 - Dec 2024</span>
-      <ul>
-        <li>Engineered MQL4 and MQL5 trading bots with module-level backtests and capital-management rules.</li>
-        <li>Streamlined part-time client delivery through n8n automation pipelines and e-commerce sites.</li>
-        <li>Raised Blazor Hybrid and .NET MAUI fluency on cross-platform clients, added Docker to the toolkit, and practiced Onion Architecture, Git, and DevOps more tightly than in earlier roles.</li>
-        <li>Recorded smart-contract wiring in a few .NET sample projects by implementing the contract inside those solutions.</li>
-      </ul>
+      <div class="employer">
+        <img class="logo" src="media/logos/independent.png" alt="Independent" onerror="this.remove()">
+        <p class="employer-name">Independent</p>
+        <p class="employer-type">Independent; part-time client work</p>
+        <p class="time-label">Time period</p>
+        <p class="dates">Jan 2023 – Dec 2024</p>
+        <p class="place">Shiraz, Iran</p>
+      </div>
+      <div class="description">
+        <p class="role"><strong>Role:</strong> Independent engineer; trading systems, automation, and architecture R&amp;D</p>
+        <p class="project"><strong>Project:</strong> Trading systems and client automation</p>
+        <ul>
+          <li>Built MQL4 and MQL5 trading bots with module-level backtests, plus budget and capital-management rules.</li>
+          <li>Delivered part-time client work through n8n pipelines and e-commerce sites, with occasional consulting.</li>
+          <li>Practiced Blazor Hybrid and .NET MAUI on cross-platform clients, and used Docker to stand up databases and test services on Linux and Windows.</li>
+          <li>Built a few .NET samples that implemented a smart contract inside the project.</li>
+        </ul>
+        <img class="activity" src="media/activities/independent.png" alt="" onerror="this.remove()">
+        <p class="tools"><strong>Tools &amp; Technologies:</strong> MQL4, MQL5, Python, n8n, Docker, Blazor Hybrid, .NET MAUI, Blockchain, smart contracts</p>
+      </div>
     </article>
 
     <article class="job">
-      <span class="job-head">Electricity-Distribution Automation Support and Development; Microservices Rewrite | ParsiaAfzar FaraAndishanNovin</span>
-      <span class="job-meta">Shiraz, Iran | Oct 2020 - Jan 2023</span>
-      <ul>
-        <li>Kept electricity-distribution automation in production for Bushehr, Mazandaran, Greater Tehran, Arak, and other cities by running ticket-driven support, defect fixes, and feature work on the existing MVC stack.</li>
-        <li>Architected the unified rewrite of those automation projects, moving separate MVC codebases onto one Microservices platform with CQRS, RabbitMQ, DDD, Vue.js, monitoring, and .NET Core.</li>
-        <li>Engineered a custom ASP.NET Core MVC CMS so site content could be updated in-house.</li>
-      </ul>
+      <div class="employer">
+        <img class="logo" src="media/logos/parsia-afzar.png" alt="ParsiaAfzar FaraAndishanNovin" onerror="this.remove()">
+        <p class="employer-name">ParsiaAfzar FaraAndishanNovin</p>
+        <p class="employer-type">Full-time</p>
+        <p class="time-label">Time period</p>
+        <p class="dates">Oct 2020 – Jan 2023</p>
+        <p class="place">Shiraz, Iran</p>
+      </div>
+      <div class="description">
+        <p class="role"><strong>Role:</strong> Electricity-distribution automation support and development; microservices rewrite</p>
+        <p class="project"><strong>Project:</strong> Electricity-distribution automation</p>
+        <ul>
+          <li>Kept electricity-distribution automation in production for Bushehr, Mazandaran, Greater Tehran, Arak, and other cities, with ticket-driven support and feature work on the existing ASP.NET MVC stack.</li>
+          <li>Rewrote those separate MVC codebases onto one Microservices platform with CQRS, RabbitMQ, DDD, and Vue.js. SQL Server held the data. EF Core did the first read/write split, and heavy queries moved into stored procedures.</li>
+          <li>Shipped an in-house ASP.NET Core MVC CMS so company site content could be updated without a separate vendor.</li>
+        </ul>
+        <img class="activity" src="media/activities/parsia-afzar.png" alt="" onerror="this.remove()">
+        <p class="tools"><strong>Tools &amp; Technologies:</strong> C#, ASP.NET MVC, ASP.NET Core, Microservices, CQRS, RabbitMQ, DDD, Vue.js, SQL Server, EF Core, Serilog</p>
+      </div>
     </article>
 
     <article class="job">
-      <span class="job-head">.NET Developer; Project Management in Late Tenure | Rasta Tejarat Beinolmelal Rastak</span>
-      <span class="job-meta">Shiraz, Iran | Oct 2019 - Aug 2020</span>
-      <ul>
-        <li>Streamlined delivery from informal process onto Git, Agile/Scrum, and DevOps by introducing Git into the workflow with the then project manager.</li>
-        <li>Took over project follow-up in late tenure so CRM and investment-platform work kept shipping after the project manager left.</li>
-        <li>Engineered Angular work on the CRM frontend by learning and applying Angular on that product.</li>
-      </ul>
+      <div class="employer">
+        <img class="logo" src="media/logos/rasta-tejarat.png" alt="Rastak International Holding" onerror="this.remove()">
+        <p class="employer-name">Rastak International Holding</p>
+        
+        <p class="time-label">Time period</p>
+        <p class="dates">Oct 2019 – Aug 2020</p>
+        <p class="place">Shiraz, Iran</p>
+      </div>
+      <div class="description">
+        <p class="role"><strong>Role:</strong> .NET Developer; project management in late tenure</p>
+        <p class="project"><strong>Project:</strong> CRM and networked investment platform</p>
+        <ul>
+          <li>Brought Git into daily delivery with the project manager, and moved the team onto Agile/Scrum. This was the first place I used Git and DevOps at work.</li>
+          <li>After the project manager left, kept the CRM and the networked investment platform shipping, including Angular on the CRM frontend. The CRM backend is ASP.NET Core 3.1.</li>
+        </ul>
+        <img class="activity" src="media/activities/rasta-tejarat.png" alt="" onerror="this.remove()">
+        <p class="tools"><strong>Tools &amp; Technologies:</strong> C#, ASP.NET Core 3.1, Angular, Git, SQL Server</p>
+      </div>
     </article>
 
     <article class="job">
-      <span class="job-head">.NET Developer | Nikan Exir Vista Rayan</span>
-      <span class="job-meta">Shiraz, Iran | Jul 2018 - Oct 2019</span>
-      <ul>
-        <li>Engineered a REST appointment-queue backend for the team's PWA, in production from Jul 2018 to Oct 2019, on ASP.NET Core and SQL Server in the first production .NET role.</li>
-      </ul>
+      <div class="employer">
+        <img class="logo" src="media/logos/nikan-exir.png" alt="Nikan Exir Vista Rayan" onerror="this.remove()">
+        <p class="employer-name">Nikan Exir Vista Rayan</p>
+        
+        <p class="time-label">Time period</p>
+        <p class="dates">Jul 2018 – Oct 2019</p>
+        <p class="place">Shiraz, Iran</p>
+      </div>
+      <div class="description">
+        <p class="role"><strong>Role:</strong> .NET Developer</p>
+        <p class="project"><strong>Project:</strong> Appointment queue</p>
+        <ul>
+          <li>Built the REST appointment-queue API for the team PWA and kept it in production through this tenure, on ASP.NET Core and SQL Server. The company made accounting software.</li>
+        </ul>
+        <img class="activity" src="media/activities/nikan-exir.png" alt="" onerror="this.remove()">
+        <p class="tools"><strong>Tools &amp; Technologies:</strong> C#, ASP.NET Core, SQL Server</p>
+      </div>
     </article>
   </section>
 
   <section>
-    <h2>Verified Certifications</h2>
-    <ul class="certs">
-      <li>Professional MVC &amp; ASP.NET Core | Islamic Azad University | Jan 2020</li>
-      <li>Mobile Application Development with Xamarin.Android | Industrial Management Institute, South Unit | Jan 2017</li>
-      <li>Web Development with PHP &amp; CodeIgniter | Industrial Management Institute, South Unit | 2014</li>
-      <li>Object-Oriented Programming (OOP) &amp; C# Fundamentals | Industrial Management Institute, South Unit | Aug 2013</li>
+    <h2>Flagship Projects</h2>
+
+    <h3>Gold ERP, Kuwait | Ayar Plus</h3>
+    <ul>
+      <li>AyarPlus1/MAUI-App: production Ayar+ client for invoices, gold rates, RBAC, Ably sync, and six languages, on .NET 10 MAUI and a Laravel API, with OneSignal and Sentry.</li>
+      <li>AyarPlus1/AyarPlusBlazorMAUI: Kuwait wholesale gold ERP with a dual ledger of 999 gold and KWD, PACI, and KNET, on .NET 10, Blazor Hybrid/MAUI, PostgreSQL, Redis, and QuestPDF.</li>
+      <li>AyarPlus1/AyarPlusBit: gold and jewelry ERP on Bit Platform, offline-first, SignalR rates, and RAG, on .NET 10, Blazor WASM/MAUI, PostgreSQL, pgvector, and Hangfire.</li>
+      <li>AyarPlus1/ShopSync: offline-first POS local gate with outbox, conflict resolution, and Akaunting sync, on ASP.NET Core 10, EF Core, SQLite, SignalR, ZeroMQ, and Polly. In the shops the MAUI client keeps no local database, the LAN ASP.NET server is the source of truth, and idempotency keys go with the outbox. No shop count. SirTypeOfficial/ShopSync is empty. The implementation is the AyarPlus1 repo.</li>
+      <li>SirTypeOfficial/KaratFlow: the same 999 and KWD ledger, read with role 07. The solution started from the bitplatform template. Docker deploy config names karatflow.app.</li>
+      <li>AyarPlus1/AyarPlus-interview: interview exercise, a .NET 10 contacts API plus a MAUI client and EF Core. Not a production Ayar product.</li>
+      <li>AyarPlus1/gantt-reports: static HTML page for contractor hours, payments, and a Gantt chart, with Vazirmatn and print-to-PDF. No server app.</li>
+      <li>AyarPlus1/Laravel: app pushed from the contractor workspace on develop. The fact sheet does not cite composer.json, so the Laravel version is not confirmed from the tree.</li>
     </ul>
+
+    <h3>School transport, ALPR, taxi | Ertebatat Pazhoohan Matin (Knowledge-Based)</h3>
+    <ul>
+      <li>MatinCompany/Service_Schools_NG: registration, fleet, settlement, and multi-city tariffs. Projects named in the fact sheet: DomainClasses, ServiceLayer, DataAccess, ViewModels, and Web. Onion-style split. The GitHub copy matches gitea.rpnr.ir.</li>
+      <li>MatinCompany/Service_Schools_NG_Lite: lighter sibling. The company remote is Gitea. The lite fact sheet does not cite a csproj, and Onion is not copied onto this repo from NG.</li>
+      <li>MatinCompany/SafirMehr: mobile client with Isfahan and Shiraz flavors. Kotlin / Jetpack Compose, WebView, Capacitor iOS, FCM, foreground GPS.</li>
+      <li>MatinCompany/AutomaticLicensePlateRecognition: Iranian plate reading. Python 3.8+, YOLO, Hezar OCR, FastAPI. Docs say the default mode is offline.</li>
+      <li>MatinCompany/OnlineTaxiMatin and MatinCompany/SmartTaxi: two projects with different goals. SmartTaxi includes SmartTaxiAndroid, a Capacitor Android/iOS client with Shiraz and Isfahan configs, and SmartTaxiHtmlTemplate, a static HTML template.</li>
+      <li>MatinCompany/Matin-DeskExtras is a desktop file archive (contracts, SQL, APK, KeyStore). It is not a separate product and is not a resume attachment.</li>
+    </ul>
+
+    <h3>Product search and data tools | BahamShop</h3>
+    <ul>
+      <li>SirTypeOfficial/BahamShop and the org copy BahamshopCompany/BahamShop: Persian product search and multi-store prices. The personal fact sheet names ASP.NET Core 6 MVC, EF Core 7, SQL Server, Quartz, and Kavenegar, one project in BahamShop.sln. That tree is an earlier snapshot, later upgraded to ASP.NET Core 9 with Clean Architecture. Clean Architecture and n8n live in the role narrative. n8n sits outside this repo.</li>
+      <li>BahamshopCompany/Bahamshop.Monorepo: Admin, Core, Sales, and Vendor split in a Bit Platform style. That super-app / monorepo move did not replace production. The short fact sheet does not name a .NET version.</li>
+      <li>BahamshopCompany/BahamshopOnBit: unfinished cross-platform attempt, a Bit Platform host with BahamshopOnBit.sln.</li>
+      <li>BahamshopCompany/bahamshop-sync-wordpress-plugin: PHP WordPress plugin that syncs BahamShop data.</li>
+      <li>C# tools for third-party price-comparison sources: image fetch, product queue, UpdateFaTitle, ImportCityAndProvince, DeleteDuplicateImages, and BhamshopDBMigration (database migration; the short fact sheet does not name the engine).</li>
+      <li>Static storefronts: bahamshop-html and a second HTML, CSS, and JavaScript storefront.</li>
+      <li>A marketplace price-scraper tool and frest: stack and architecture are not confirmed in the fact sheets.</li>
+    </ul>
+
+    <h3>Electricity-distribution automation | ParsiaAfzar</h3>
+    <ul>
+      <li>AutomationBackend (org and personal copy): dynamic-form and cartable API on .NET 5, ASP.NET Core, MediatR, EF Core, and SQL Server. CQRS via MediatR.</li>
+      <li>AutomationBlazor: Blazor WASM client plus the workflow backend, with Syncfusion, MediatR, and SignalR, on .NET 5.</li>
+      <li>AutomationUI: Persian RTL admin SPA on Vue 2, Quasar 1.x, Axios, Vuex, and Vue-i18n.</li>
+      <li>Automation: Automation.sln archive with a Dockerfile. The short fact sheet does not name the framework version. CQRS is taken from the Backend fact sheet, not from this short file.</li>
+      <li>ParsiaAfzar.ir / ParsiaAfzarCore: company site on ASP.NET Core 5, EF Core, and SQL Server. The custom CMS in the role narrative is this family.</li>
+      <li>Provincial MVC trees on .NET Framework, separate from the Microservices rewrite: KhozestanSAM (4.5.2), BoushehrNAJM (4.5), Mazandaran-Najm (web 4.5 and a 4.5.1 service), BoushehrEgsService (ASMX), Mazandaran-Supervision and SupervisionBoushehr (web, Android client, web service). Khuzestan is not in the narrated city sentence. It is the name of that tree.</li>
+      <li>BoushehrServices: NajmService and TestNajmService. The short fact sheet does not name the target framework.</li>
+      <li>TricklandCms: .NET 5 multi-host (API, WebUI, Blazor) with MediatR, EF Core, IdentityServer, Syncfusion, and SQL Server. The Parsia link is a hypothesis, not a confirmed deliverable.</li>
+      <li>BoushehrNAJMCore, BoushehrLibrary, ParsiaFiles, and BehnamAfrasiabi: zip pack, DLL archive, documents, or an empty root. No product architecture is claimed from them.</li>
+    </ul>
+
+    <h3>CRM and clinic | Rasta</h3>
+    <ul>
+      <li>RastakHolding/CRM: companies, contacts, deals, projects, attendance, light finance, SMS, and email. ASP.NET Core 3.1, EF Core 3.1, SQL Server, JWT, Identity, Swagger, Kavenegar, NLog. The Angular frontend is not this repo.</li>
+      <li>RastakHolding/IndustryClinic: a separate solution with an IndustryClinic tree, a CRM tree, and a Xamarin client. C#, Java, JavaScript, HTML, CSS.</li>
+    </ul>
+
+    <h3>Independent work and personal projects</h3>
+    <ul>
+      <li>SirTypeOfficial/trading-bot: Streamlit backtesting with a moving-average crossover plus LSTM and Grid/Martingale sizing, on Python, Keras/TensorFlow, and Matplotlib. MQL is not in this repo. Mapped to Jan 2023 – Dec 2024.</li>
+      <li>SirTypeOfficial/VueCA (and the copy under the Parsia org): a personal try of Vue with Clean Architecture, commits 6–22 Feb 2021. .NET 5, OIDC, SQL Server, Domain / Application / Infrastructure / WebUI. Not a Parsia job and not a Rasta job.</li>
+      <li>SirTypeOfficial/LinguaStream: Persian-to-English voice translation with XTTS-v2, commit 8 Oct 2025. Python, Whisper, Hugging Face, Coqui TTS, Streamlit. That date is outside the independent stretch through Dec 2024.</li>
+      <li>SirTypeOfficial/android-to-windows-streaming: Android camera and microphone as a Windows virtual webcam, 27 Oct through 1 Nov 2025. Gradle app, Python receiver, AVStream virtual camera (vcam.inf), PortCls virtual microphone (vmic.inf).</li>
+      <li>SirTypeOfficial/WireguardConfigToQrcode: Python scripts that turn a WireGuard config into a QR code, sing-box/Throne JSON, and URIs. Commit 29 Sep 2025.</li>
+    </ul>
+
+    <h3>Templates, samples, and the personal archive</h3>
+    <p>These are not employer products and are not pinned to a job period unless a fact sheet cites a commit date.</p>
+    <ul>
+      <li>Shops and CMS with tree evidence: BookShop (ASP.NET Core 2.1 MVC, EF Core, SQL Server), NewsWebsite (ASP.NET Core 3.1), SportShop (.NET 10, MVC, Identity, Razor), WPro (.NET 5 MVC), ETHMetamaskConnect (ASP.NET page for MetaMask), Ably01 (ASP.NET Core 7, Razor Pages, EF Core, SQL Server; fleet-ops scaffold).</li>
+      <li>Architecture templates: BaseMicroserviceBlazor (.NET 6, Blazor WASM, IdentityServer, Clean Architecture), BaseOnBit (.NET 9, Bit Platform v9.7.2), Custify (.NET 9, Blazor WASM/MAUI), GPHOnBit, PayHubOnBit (.NET 9 scaffold; not a shipped payment product), DariushT_DDD_Eshop (.NET 5, MediatR, DDD), DT_CMS and Template_CMS (.NET 7, Clean Architecture), Template.CMS.OneLayer (.NET 7, single project), MBBase (.NET 6), MyEShop (.NET 7, Duende IdentityServer), StarterSolutionCleanCode (.NET 7, DDD, Blazor/MAUI), rayankar-test (customer CRUD assignment on .NET 8 / Blazor with Gherkin), MV.Common (.NET 8 libraries).</li>
+      <li>Plans, not finished products: DynamicECOMMERCE (planned .NET 10, Razor Pages, PostgreSQL 16), DynamicShop (WooCommerce rebuild blueprint; shipped code not confirmed), EcoCivitas, PulseAIWorld, SNT (documents).</li>
+      <li>ClientKeeper: Next.js, React, Firebase, next-intl, and Genkit UI. On the 22 Sep 2026 pass the OTP, Firestore, and Genkit paths were largely unwired.</li>
+      <li>react-learn: interview notes and an RTL practice app on React and Vite. SpotReverse: WinForms research plus a C dump. vuexy-full-version-react: Vuexy 6.4.0 template. Resume: this career vault. SirTypeOfficial: profile README.</li>
+      <li>Azure archive on the personal account, original commit dates kept: Base (netcoreapp3.1, EF Core, Identity, JWT, Syncfusion, NLog), VueCore (layered ASP.NET Core 3.1 host, not a Vue CLI app), LSS, LMSocial, StateApp, and PersianAppkitShop (Clean Architecture), LMSocial-sirtype (separate tree, Nov 2020), Personal (layered 3.1 site), BaseNet5Blazor, Blazor, AppkitVuexy, DecodeJsSirType (WinForms, .NET Framework 4.7.2), HtmlTranslator (WinForms, netcoreapp3.1, HtmlAgilityPack), SamDynamic (two .NET 5 class libraries), AngularShopCleanArchitecture (shop sample; layer detail stays in that fact sheet).</li>
+    </ul>
+    <p>Nikan has no repo in these accounts. The forks bitplatform, DntSite, and Auto_job_applier_linkedIn had no commits by mv6468@gmail.com and are not shipped work. DevimanAI repos are not part of this resume.</p>
   </section>
 
   <section>
-    <h2>Education &amp; Background</h2>
+    <h2>Certifications</h2>
+    <ul class="certs">
+      <li>Professional MVC and ASP.NET Core | Islamic Azad University | Bahman 1398 / Jan 2020 (two PDFs: ASP.NET MVC and ASP.NET Core 2)</li>
+      <li>Mobile Application Development with Xamarin.Android | Industrial Management Institute, South Unit | Bahman 1395 / Jan 2017</li>
+      <li>Web Development with PHP and CodeIgniter | Industrial Management Institute, South Unit | 1393 / 2014 (PDF not in assets)</li>
+      <li>Object-Oriented Programming (OOP) and C# Fundamentals | Industrial Management Institute, South Unit | Shahrivar 1392 / Aug 2013</li>
+    </ul>
+    <p>Photoshop (Shahrivar 1398), 3ds Max Animation (Aban 1392), and WordPress (Azar 1395) PDFs from the same institute are on disk. They sit outside the .NET, applied-intelligence, and automation triad and are not profile skills.</p>
+  </section>
+
+  <section>
+    <h2>Education</h2>
     <ul class="edu">
-      <li>Professional MVC and ASP.NET Core course, Islamic Azad University | 1398 / certificates dated Jan 2020</li>
-      <li>Object-oriented programming and C# fundamentals, Industrial Management Institute, South Unit | 1392 / Aug 2013</li>
-      <li>Web development with PHP and CodeIgniter, Industrial Management Institute, South Unit | 1393 / 2014</li>
-      <li>Mobile development with Xamarin.Android, Industrial Management Institute, South Unit | 1395 / Jan 2017</li>
-      <li>Self-study before the first production role: Arezoo Ebrahimi ASP.NET Core course (120+ hours) and ASP.NET MVC 5 books</li>
-      <li>Two years of military service, completed before joining Nikan in Jul 2018</li>
+      <li>Professional MVC and ASP.NET Core, Islamic Azad University | 1398, certificate Bahman 1398 (during the Rasta tenure, after leaving Nikan)</li>
+      <li>Mobile development with Xamarin.Android, IMI South | 1395, certificate Bahman 1395</li>
+      <li>Web development with PHP and CodeIgniter, IMI South | 1393</li>
+      <li>Object-oriented programming and C# fundamentals, IMI South | 1392, certificate Shahrivar 1392</li>
+      <li>Self-study before Nikan: Arezoo Ebrahimi's ASP.NET Core course (more than 120 hours) and ASP.NET MVC 5 books</li>
+      <li>Two years of military service, completed before joining Nikan in Tir 1397 / Jul 2018</li>
     </ul>
   </section>
 </body>
