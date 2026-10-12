@@ -6,7 +6,7 @@
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="googlebot" content="index, follow" />
   <title>MohammadReza Vazifeh | Full-Stack Developer (.NET)</title>
-  <meta name="description" content="MohammadReza Vazifeh (محمدرضا وظیفه) — Full-Stack Developer (.NET) and software architect in Shiraz. .NET 9/10, Clean Architecture, DDD, CQRS, Microservices; ALPR with Python and FastAPI; automation with n8n, RabbitMQ, Redis, and SignalR." />
+  <meta name="description" content="MohammadReza Vazifeh, full-stack developer (.NET) and software architect in Shiraz. .NET 9/10, Clean Architecture, DDD, CQRS, Microservices, ALPR, and n8n." />
   <meta name="keywords" content="MohammadReza Vazifeh, Mohammad Reza Vazifeh, محمدرضا وظیفه, SirType, SirTypeOfficial, Full-Stack Developer, .NET, Software Architect, ASP.NET Core, .NET 10, MAUI, Microservices, Clean Architecture, Shiraz" />
   <meta name="author" content="Mohammad Reza Vazifeh" />
   <meta name="theme-color" content="#080808" />
@@ -18,7 +18,7 @@
   <meta property="og:site_name" content="محمدرضا وظیفه | Mohammad Reza Vazifeh" />
   <meta property="og:url" content="https://mohammadrezav.ir/index-en.html" />
   <meta property="og:title" content="MohammadReza Vazifeh | Full-Stack Developer (.NET)" />
-  <meta property="og:description" content="MohammadReza Vazifeh — Full-Stack Developer (.NET) and software architect in Shiraz. .NET 9/10, Clean Architecture, DDD, CQRS, Microservices, ALPR, n8n." />
+  <meta property="og:description" content="MohammadReza Vazifeh, full-stack developer (.NET) and software architect in Shiraz. .NET 9/10, Clean Architecture, DDD, CQRS, Microservices, ALPR, and n8n." />
   <meta property="og:image" content="https://mohammadrezav.ir/assets/profile.jpg" />
   <meta property="og:image:alt" content="محمدرضا وظیفه — Mohammad Reza Vazifeh" />
   <meta property="og:locale" content="en_US" />
@@ -30,7 +30,7 @@
   <meta name="twitter:site" content="@SirTypeOfficial" />
   <meta name="twitter:creator" content="@SirTypeOfficial" />
   <meta name="twitter:title" content="MohammadReza Vazifeh | Full-Stack Developer (.NET)" />
-  <meta name="twitter:description" content="Full-Stack Developer (.NET) and software architect in Shiraz. .NET 9/10 · Clean Architecture · DDD · CQRS · Microservices · ALPR · n8n" />
+  <meta name="twitter:description" content="MohammadReza Vazifeh, full-stack developer (.NET) and software architect in Shiraz. .NET 9/10, Clean Architecture, DDD, CQRS, Microservices, ALPR, and n8n." />
   <meta name="twitter:image" content="https://mohammadrezav.ir/assets/profile.jpg" />
   <meta name="twitter:image:alt" content="Mohammad Reza Vazifeh" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -747,8 +747,6 @@
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.469.0/dist/umd/lucide.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script>
@@ -769,22 +767,36 @@
           requestAnimationFrame(raf);
         }
         requestAnimationFrame(raf);
-        if (window.gsap && window.ScrollTrigger) {
-          gsap.registerPlugin(ScrollTrigger);
-          lenis.on("scroll", ScrollTrigger.update);
-          gsap.ticker.add((time) => lenis.raf(time * 1000));
-          gsap.ticker.lagSmoothing(0);
-        }
-      } else if (window.gsap && window.ScrollTrigger) {
-        gsap.registerPlugin(ScrollTrigger);
       }
 
-      if (window.gsap && window.ScrollTrigger) {
-        gsap.utils.toArray(".timeline-item").forEach((item) => {
-          gsap.from(item.querySelector(".glass"), {
+      function loadScript(src) {
+        return new Promise(function (resolve, reject) {
+          const el = document.createElement("script");
+          el.src = src;
+          el.async = true;
+          el.onload = function () { resolve(); };
+          el.onerror = function () { reject(new Error(src)); };
+          document.body.appendChild(el);
+        });
+      }
+
+      function bootScrollMotion() {
+        if (!window.gsap || !window.ScrollTrigger) return;
+        gsap.registerPlugin(ScrollTrigger);
+        if (lenis) {
+          lenis.on("scroll", ScrollTrigger.update);
+          gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
+          gsap.ticker.lagSmoothing(0);
+        }
+
+        gsap.utils.toArray(".timeline-item").forEach(function (item) {
+          if (item.getBoundingClientRect().top < window.innerHeight * 0.85) return;
+          const card = item.querySelector(".glass");
+          if (!card) return;
+          gsap.from(card, {
             y: 48,
             opacity: 0,
-            duration: reduceMotion ? 0 : 0.9,
+            duration: 0.9,
             ease: "power3.out",
             scrollTrigger: {
               trigger: item,
@@ -793,14 +805,39 @@
             }
           });
         });
-        gsap.from("#work .bento-card", {
-          y: 40,
-          opacity: 0,
-          duration: reduceMotion ? 0 : 0.8,
-          stagger: 0.08,
-          ease: "power3.out",
-          scrollTrigger: { trigger: "#work", start: "top 75%" }
-        });
+
+        const work = document.querySelector("#work");
+        if (work && work.getBoundingClientRect().top >= window.innerHeight * 0.75) {
+          gsap.from("#work .bento-card", {
+            y: 40,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.08,
+            ease: "power3.out",
+            scrollTrigger: { trigger: "#work", start: "top 75%" }
+          });
+        }
+        ScrollTrigger.refresh();
+      }
+
+      if (!reduceMotion) {
+        const startMotion = function () {
+          loadScript("https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js")
+            .then(function () { return loadScript("https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"); })
+            .then(bootScrollMotion)
+            .catch(function () {});
+        };
+        const afterPaint = function () {
+          requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+              const ric = window.requestIdleCallback;
+              if (ric) ric(startMotion, { timeout: 2000 });
+              else setTimeout(startMotion, 1);
+            });
+          });
+        };
+        if (document.readyState === "complete") afterPaint();
+        else window.addEventListener("load", afterPaint, { once: true });
       }
 
       document.querySelectorAll("[data-tilt]").forEach((card) => {
