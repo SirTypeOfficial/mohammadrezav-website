@@ -1,0 +1,13 @@
+Static TrueType faces used by scripts/generate-pdf.js.
+
+Chromium embeds Google Fonts variable WOFF2 as Type 3. Those PDFs fail
+pdftotext (Bad FCHECK) and ATS parsers. These files are static glyf fonts,
+not variable fonts. Do not replace them with a .woff2 or a variable TTF.
+
+Inter-Regular.ttf, Inter-SemiBold.ttf, Inter-Bold.ttf
+  Inter, static instances. SIL Open Font License 1.1. See OFL-Inter.txt.
+  https://github.com/rsms/inter
+
+Vazirmatn-Regular.ttf, Vazirmatn-SemiBold.ttf, Vazirmatn-Bold.ttf
+  Vazirmatn v33.003 fonts/ttf. SIL Open Font License 1.1. See OFL-Vazirmatn.txt.
+  https://github.com/rastikerdar/vazirmatn

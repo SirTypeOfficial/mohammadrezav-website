@@ -4,9 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mohammad Reza Vazifeh — Master Resume</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet">
+  <style id="ats-fonts">
+    /* Static TTF so Chromium embeds CID TrueType with ToUnicode. Variable WOFF2 becomes Type 3. */
+    @font-face { font-family: Inter; font-style: normal; font-weight: 400; font-display: block; src: url("../assets/fonts/resume/Inter-Regular.ttf") format("truetype"); }
+    @font-face { font-family: Inter; font-style: normal; font-weight: 600; font-display: block; src: url("../assets/fonts/resume/Inter-SemiBold.ttf") format("truetype"); }
+    @font-face { font-family: Inter; font-style: normal; font-weight: 700; font-display: block; src: url("../assets/fonts/resume/Inter-Bold.ttf") format("truetype"); }
+    @font-face { font-family: Vazirmatn; font-style: normal; font-weight: 400; font-display: block; src: url("../assets/fonts/resume/Vazirmatn-Regular.ttf") format("truetype"); }
+    @font-face { font-family: Vazirmatn; font-style: normal; font-weight: 600; font-display: block; src: url("../assets/fonts/resume/Vazirmatn-SemiBold.ttf") format("truetype"); }
+    @font-face { font-family: Vazirmatn; font-style: normal; font-weight: 700; font-display: block; src: url("../assets/fonts/resume/Vazirmatn-Bold.ttf") format("truetype"); }
+  </style>
   <style>
     :root {
       --ink: #161616;
@@ -256,9 +262,22 @@
       .job { break-inside: avoid; page-break-inside: avoid; }
       li { break-inside: avoid; }
     }
+  
+    /* Keep the img. Hide the mark and its margin; the employer name stays text. */
+    @media screen, print {
+      body.no-logos .logo,
+      body[data-logos="off"] .logo {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        max-height: 0 !important;
+        margin: 0 !important;
+      }
+    }
+
   </style>
 </head>
-<body>
+<body data-logos="on">
   <header>
     <div class="who">
       <h1>Mohammad Reza Vazifeh</h1>
@@ -408,7 +427,7 @@
       <div class="employer">
         <img class="logo" src="media/logos/parsia-afzar.png" alt="ParsiaAfzar FaraAndishanNovin" onerror="this.remove()">
         <p class="employer-name">ParsiaAfzar FaraAndishanNovin</p>
-        <p class="employer-type">Full-time</p>
+        <p class="employer-type">Full-time / On-site</p>
         <p class="time-label">Time period</p>
         <p class="dates">Oct 2020 – Jan 2023</p>
         <p class="place">Shiraz, Iran</p>
@@ -417,8 +436,8 @@
         <p class="role"><strong>Role:</strong> Electricity-distribution automation support and development; microservices rewrite</p>
         <p class="project"><strong>Project:</strong> Electricity-distribution automation</p>
         <ul>
-          <li>Kept electricity-distribution automation in production for Bushehr, Mazandaran, Greater Tehran, Arak, and other cities, with ticket-driven support and feature work on the existing ASP.NET MVC stack.</li>
-          <li>Rewrote those separate MVC codebases onto one Microservices platform with CQRS, RabbitMQ, DDD, and Vue.js. SQL Server held the data. EF Core did the first read/write split, and heavy queries moved into stored procedures.</li>
+          <li>Closed 100+ support tickets in roughly the first one to two months across the Bushehr electricity workflow, some other cities, and older MVC 5 systems, and resolved issues on the phone with the distribution-company user.</li>
+          <li>Rewrote those separate MVC codebases onto one Microservices platform with CQRS, RabbitMQ, DDD, and Vue.js. SQL Server held the data. EF Core did the first read/write split, and heavy queries moved into stored procedures. On the older MVC 5 systems, stored procedures cut DCS page load from about 30 seconds to under 1 second; a separate team owned DCS. On-site sessions with the other developers shipped the fixes and the rewrite.</li>
           <li>Shipped an in-house ASP.NET Core MVC CMS so company site content could be updated without a separate vendor.</li>
         </ul>
         <img class="activity" src="media/activities/parsia-afzar.png" alt="" onerror="this.remove()">
@@ -557,7 +576,7 @@
   </section>
 
   <section>
-    <h2>Education</h2>
+    <h2>Education &amp; Training</h2>
     <ul class="edu">
       <li>Professional MVC and ASP.NET Core, Islamic Azad University | 1398, certificate Bahman 1398 (during the Rasta tenure, after leaving Nikan)</li>
       <li>Mobile development with Xamarin.Android, IMI South | 1395, certificate Bahman 1395</li>

@@ -4,9 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>محمدرضا وظیفه — رزومه جامع</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet">
+  <style id="ats-fonts">
+    /* Static TTF so Chromium embeds CID TrueType with ToUnicode. Variable WOFF2 becomes Type 3. */
+    @font-face { font-family: Inter; font-style: normal; font-weight: 400; font-display: block; src: url("../assets/fonts/resume/Inter-Regular.ttf") format("truetype"); }
+    @font-face { font-family: Inter; font-style: normal; font-weight: 600; font-display: block; src: url("../assets/fonts/resume/Inter-SemiBold.ttf") format("truetype"); }
+    @font-face { font-family: Inter; font-style: normal; font-weight: 700; font-display: block; src: url("../assets/fonts/resume/Inter-Bold.ttf") format("truetype"); }
+    @font-face { font-family: Vazirmatn; font-style: normal; font-weight: 400; font-display: block; src: url("../assets/fonts/resume/Vazirmatn-Regular.ttf") format("truetype"); }
+    @font-face { font-family: Vazirmatn; font-style: normal; font-weight: 600; font-display: block; src: url("../assets/fonts/resume/Vazirmatn-SemiBold.ttf") format("truetype"); }
+    @font-face { font-family: Vazirmatn; font-style: normal; font-weight: 700; font-display: block; src: url("../assets/fonts/resume/Vazirmatn-Bold.ttf") format("truetype"); }
+  </style>
   <style>
     :root {
       --ink: #161616;
@@ -256,9 +262,22 @@
       .job { break-inside: avoid; page-break-inside: avoid; }
       li { break-inside: avoid; }
     }
+  
+    /* Keep the img. Hide the mark and its margin; the employer name stays text. */
+    @media screen, print {
+      body.no-logos .logo,
+      body[data-logos="off"] .logo {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        max-height: 0 !important;
+        margin: 0 !important;
+      }
+    }
+
   </style>
 </head>
-<body>
+<body data-logos="on">
   <header>
     <div class="who">
       <h1>محمدرضا وظیفه</h1>
@@ -408,7 +427,7 @@
       <div class="employer">
         <img class="logo" src="media/logos/parsia-afzar.png" alt="پارسیا افزار فرااندیشان نوین" onerror="this.remove()">
         <p class="employer-name">پارسیا افزار فرااندیشان نوین</p>
-        <p class="employer-type">تمام‌وقت</p>
+        <p class="employer-type">تمام‌وقت / حضوری</p>
         <p class="time-label">بازه</p>
         <p class="dates">مهر ۱۳۹۹ – دی ۱۴۰۱</p>
         <p class="place">شیراز، ایران</p>
@@ -417,8 +436,8 @@
         <p class="role"><strong>نقش:</strong> پشتیبانی و توسعه اتوماسیون توزیع برق؛ بازنویسی میکروسرویس</p>
         <p class="project"><strong>پروژه:</strong> اتوماسیون توزیع برق</p>
         <ul>
-          <li>اتوماسیون توزیع برق را برای بوشهر، مازندران، تهران بزرگ، اراک و شهرهای دیگر در تولید نگه داشتم، با پشتیبانی تیکتی و کار فیچر روی همان <span class="ltr">ASP.NET MVC</span>.</li>
-          <li>کدبیس‌های جدا <span class="ltr">MVC</span> را روی یک پلتفرم <span class="ltr">Microservices</span> با <span class="ltr">CQRS</span>، <span class="ltr">RabbitMQ</span>، <span class="ltr">DDD</span> و <span class="ltr">Vue.js</span> بازنویسی کردم. داده روی <span class="ltr">SQL Server</span> بود. <span class="ltr">EF Core</span> تفکیک اول خواندن و نوشتن را انجام داد و کوئری سنگین به <span class="ltr">Stored Procedure</span> رفت.</li>
+          <li>در حدود یکی دو ماه اول بیش از ۱۰۰ تیکت پشتیبانی بستم؛ صف، گردش‌کار برق بوشهر، برخی شهرهای دیگر و سامانه‌های قدیمی‌تر MVC 5 را پوشش می‌داد و مشکلات را تلفنی با کاربر مسئول سیستم حل می‌کردم.</li>
+          <li>کدبیس‌های جدا <span class="ltr">MVC</span> را روی یک پلتفرم <span class="ltr">Microservices</span> با <span class="ltr">CQRS</span>، <span class="ltr">RabbitMQ</span>، <span class="ltr">DDD</span> و <span class="ltr">Vue.js</span> بازنویسی کردم. داده روی <span class="ltr">SQL Server</span> بود. <span class="ltr">EF Core</span> تفکیک اول خواندن و نوشتن را انجام داد و کوئری سنگین به <span class="ltr">Stored Procedure</span> رفت. روی سامانه‌های قدیمی <span class="ltr">MVC 5</span>، <span class="ltr">Stored Procedure</span> بار صفحه <span class="ltr">DCS</span> را از حدود ۳۰ ثانیه به زیر ۱ ثانیه رساند؛ مالک <span class="ltr">DCS</span> تیم جدا بود. جلسه حضوری با بقیه توسعه‌دهنده‌ها مسیر تحویل رفع اشکال و بازنویسی بود.</li>
           <li><span class="ltr">CMS</span> اختصاصی <span class="ltr">ASP.NET Core MVC</span> را برای سایت شرکت ساختم تا محتوا از داخل همان سامانه به‌روز شود.</li>
         </ul>
         <img class="activity" src="media/activities/parsia-afzar.png" alt="" onerror="this.remove()">
@@ -557,7 +576,7 @@
   </section>
 
   <section>
-    <h2>تحصیلات</h2>
+    <h2>تحصیلات و آموزش</h2>
     <ul class="edu">
       <li>دوره حرفه‌ای <span class="ltr">MVC</span> و <span class="ltr">ASP.NET Core</span>، دانشگاه آزاد اسلامی | ۱۳۹۸، گواهینامه بهمن ۱۳۹۸ (داخل بازه رستا، بعد از خروج از نیکان)</li>
       <li>توسعه موبایل با <span class="ltr">Xamarin.Android</span>، سازمان مدیریت صنعتی واحد جنوب | ۱۳۹۵، گواهینامه بهمن ۱۳۹۵</li>
