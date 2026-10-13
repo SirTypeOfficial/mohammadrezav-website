@@ -41,30 +41,9 @@
   <link rel="manifest" href="assets/favicon/site.webmanifest" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            ink: "#080808",
-            mist: "#a1a1aa",
-            frost: "rgba(255,255,255,0.06)",
-            line: "rgba(255,255,255,0.10)",
-            glow: "#34d399"
-          },
-          fontFamily: {
-            sans: ["Vazirmatn", "Inter", "system-ui", "sans-serif"],
-            en: ["Inter", "Vazirmatn", "system-ui", "sans-serif"]
-          },
-          boxShadow: {
-            glass: "0 0 0 1px rgba(255,255,255,0.08), 0 20px 50px rgba(0,0,0,0.45)"
-          }
-        }
-      }
-    };
-  </script>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Vazirmatn:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Vazirmatn:wght@400;500;600;700;800&display=swap" /></noscript>
+  <link rel="stylesheet" href="assets/styles/tailwind.css" />
   <style>
     :root { color-scheme: dark; }
     html { scroll-behavior: auto; }
@@ -119,6 +98,7 @@
       height: 100%;
       display: block;
       opacity: 0.85;
+      background: radial-gradient(ellipse at 30% 20%, #12352c 0%, #080808 55%);
     }
     .lang-en { display: none !important; }
     html[lang="en"] .lang-fa { display: none !important; }
@@ -748,7 +728,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.469.0/dist/umd/lucide.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script>
     (function () {
       const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -858,7 +837,8 @@
       });
 
       const canvas = document.getElementById("hero-canvas");
-      if (canvas && window.THREE && !reduceMotion) {
+      function bootHero() {
+        if (!canvas || !window.THREE || reduceMotion) return;
         const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         const scene = new THREE.Scene();
@@ -935,9 +915,34 @@
           renderer.render(scene, camera);
         }
         tick();
-      } else if (canvas) {
-        canvas.style.background = "radial-gradient(ellipse at 30% 20%, #12352c 0%, #080808 55%)";
       }
+
+      function scheduleHero() {
+        if (!canvas || reduceMotion) return;
+        const start = function () {
+          loadScript("https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js")
+            .then(bootHero)
+            .catch(function () {});
+        };
+        const runWhenIdle = function () {
+          const ric = window.requestIdleCallback;
+          if (ric) ric(start, { timeout: 3000 });
+          else setTimeout(start, 200);
+        };
+        if ("IntersectionObserver" in window) {
+          const obs = new IntersectionObserver(function (entries) {
+            if (!entries.some(function (entry) { return entry.isIntersecting; })) return;
+            obs.disconnect();
+            runWhenIdle();
+          });
+          obs.observe(canvas);
+        } else {
+          runWhenIdle();
+        }
+      }
+
+      if (document.readyState === "complete") scheduleHero();
+      else window.addEventListener("load", scheduleHero, { once: true });
     })();
   </script>
 </body>
